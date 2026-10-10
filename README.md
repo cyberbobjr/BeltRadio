@@ -17,7 +17,7 @@ Page `BeltRadio`, all `true` by default; `false` gives back the vanilla behaviou
 
 | Option | Effect |
 |---|---|
-| `BeltRadio.MPBubble` | Multiplayer: radio bubble above the player for a line received by an unheld radio |
+| `BeltRadio.MPBubble` | Multiplayer: radio bubble above the player for a line received by a walkie-talkie on the belt |
 | `BeltRadio.BeltBattery` | Battery drain of a switched-on walkie-talkie at the belt |
 | `BeltRadio.BeltListening` | Singleplayer: a walkie-talkie at the belt hears its station |
 

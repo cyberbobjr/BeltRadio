@@ -1,7 +1,7 @@
 {
     "Sandbox_BeltRadio": "Talkie-walkie à la ceinture",
     "Sandbox_BeltRadio_MPBubble": "Bulle pour une radio non tenue (multijoueur)",
-    "Sandbox_BeltRadio_MPBubble_tooltip": "Multijoueur : une ligne reçue par un talkie-walkie qui n'est pas tenu (ceinture, inventaire) s'affiche aussi dans une bulle radio au-dessus du joueur, comme pour un talkie-walkie en main. Désactivé : la ligne apparaît seulement dans le chat radio (vanilla).",
+    "Sandbox_BeltRadio_MPBubble_tooltip": "Multijoueur : une ligne reçue par un talkie-walkie accroché à la ceinture s'affiche aussi dans une bulle radio au-dessus du joueur, comme pour un talkie-walkie en main. Désactivé : la ligne apparaît seulement dans le chat radio (vanilla).",
     "Sandbox_BeltRadio_BeltBattery": "Usure de la pile à la ceinture",
     "Sandbox_BeltRadio_BeltBattery_tooltip": "Un talkie-walkie allumé accroché à la ceinture consomme sa pile chaque minute, comme en main. Désactivé : la charge reste figée à la ceinture et la consommation est rattrapée quand le talkie-walkie est repris en main (vanilla).",
     "Sandbox_BeltRadio_BeltListening": "Écoute à la ceinture (solo)",

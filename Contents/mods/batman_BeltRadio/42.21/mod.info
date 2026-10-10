@@ -1,7 +1,7 @@
 name=Belt Walkie-Talkie
 id=batman_BeltRadio
-description=A walkie-talkie hooked on the belt stays on, can be tuned and, in singleplayer, lets you hear the station it is tuned to. Multiplayer: radio bubble for an unheld walkie-talkie. Battery drain at the belt. Shared receiver of Military Drop, Operation Artemis and Radio Survivor. Build 42.21.
+description=A walkie-talkie hooked on the belt stays on, can be tuned and, in singleplayer, lets you hear the station it is tuned to. Multiplayer: radio bubble for a walkie-talkie at the belt. Battery drain at the belt. Shared receiver of Military Drop, Operation Artemis and Radio Survivor. Build 42.21.
 poster=poster.png
 icon=icon.png
 versionMin=42.21
-modversion=0.1.0
+modversion=0.1.1

@@ -1,6 +1,6 @@
 # API Lua de Belt Walkie-Talkie (`BatmanRadioSupport`)
 
-Mod `batman_BeltRadio`, Build 42.21. Niveau d'API documenté ici : **`VERSION = 1`** (0.1.0).
+Mod `batman_BeltRadio`, Build 42.21. Niveau d'API documenté ici : **`VERSION = 1`** (0.1.0, 0.1.1).
 
 La table globale `BatmanRadioSupport` est complétée par deux fichiers :
 
@@ -76,7 +76,7 @@ BatmanRadioSupport.enabled("BeltBattery") -- false seulement si l'option vaut fa
 
 | Option | Défaut | Fausse (comportement vanilla) |
 |---|---|---|
-| `BeltRadio.MPBubble` | vrai | MP : la ligne reçue par une radio non tenue n'apparaît que dans le chat radio |
+| `BeltRadio.MPBubble` | vrai | MP : la ligne reçue par un talkie à la ceinture n'apparaît que dans le chat radio |
 | `BeltRadio.BeltBattery` | vrai | pile figée à la ceinture, consommation rattrapée par `Radio.update` à la reprise en main |
 | `BeltRadio.BeltListening` | vrai | solo : un talkie à la ceinture n'entend rien |
 

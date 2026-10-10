@@ -10,7 +10,7 @@ Engancha tu walkie-talkie al cinturón y sigue escuchando. En vanilla, un walkie
 [*][b]Opciones del dispositivo[/b] en un walkie-talkie enganchado al cinturón: sintonizarlo, encenderlo, ajustar el volumen.
 [*]Su ventana ya no lo apaga, ni siquiera mientras lo tomas en la mano.
 [*][b]Un jugador:[/b] un walkie-talkie encendido en el cinturón oye la emisora en la que está sintonizado (emisoras vanilla, alerta de emergencia, emisoras añadidas por mods), con el bocadillo de radio sobre tu personaje. Las tormentas lo interfieren como a un walkie-talkie en la mano.
-[*][b]Multijugador:[/b] una línea recibida por un walkie-talkie que no sostienes también aparece en un bocadillo de radio sobre tu personaje, no solo en el chat de radio.
+[*][b]Multijugador:[/b] una línea recibida por un walkie-talkie enganchado al cinturón también aparece en un bocadillo de radio sobre tu personaje, no solo en el chat de radio.
 [*]La pila se gasta en el cinturón, como en la mano.
 [/list]
 
@@ -25,7 +25,7 @@ Engancha tu walkie-talkie al cinturón y sigue escuchando. En vanilla, un walkie
 
 Página [b]Walkie-talkie en el cinturón[/b], todas activadas por defecto; desactivada, cada una devuelve el comportamiento vanilla, incluso en mitad de la partida:
 [list]
-[*]Bocadillo para una radio no sostenida (multijugador).
+[*]Bocadillo para un walkie-talkie en el cinturón (multijugador).
 [*]Consumo de pila en el cinturón.
 [*]Escucha en el cinturón (un jugador).
 [/list]

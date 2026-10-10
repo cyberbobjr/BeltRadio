@@ -1,7 +1,7 @@
 {
     "Sandbox_BeltRadio": "Walkie-talkie no cinto",
     "Sandbox_BeltRadio_MPBubble": "Balão para um rádio não segurado (multijogador)",
-    "Sandbox_BeltRadio_MPBubble_tooltip": "Multijogador: uma linha recebida por um walkie-talkie que não está na mão (cinto, inventário) também aparece em um balão de rádio acima do jogador, como com um walkie-talkie na mão. Desativado: a linha só aparece no chat de rádio (vanilla).",
+    "Sandbox_BeltRadio_MPBubble_tooltip": "Multijogador: uma linha recebida por um walkie-talkie preso no cinto também aparece em um balão de rádio acima do jogador, como com um walkie-talkie na mão. Desativado: a linha só aparece no chat de rádio (vanilla).",
     "Sandbox_BeltRadio_BeltBattery": "Consumo da bateria no cinto",
     "Sandbox_BeltRadio_BeltBattery_tooltip": "Um walkie-talkie ligado preso no cinto gasta a bateria a cada minuto, como na mão. Desativado: a carga fica congelada no cinto e o consumo é recuperado quando o walkie-talkie volta para a mão (vanilla).",
     "Sandbox_BeltRadio_BeltListening": "Escuta no cinto (um jogador)",

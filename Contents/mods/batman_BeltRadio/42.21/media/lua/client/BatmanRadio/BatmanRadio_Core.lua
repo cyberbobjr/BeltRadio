@@ -6,7 +6,7 @@
 -- Seule une radio accrochée (ceinture) est servie en solo : une radio rangée
 -- (inventaire, sac) n'entend rien, comme en vanilla (décision 3).
 -- En MP, réception et VOIP restent gérées par le vanilla / Better Walkie Talkies ;
--- seule la bulle d'une ligne de chaîne reçue par une radio non tenue est ajoutée.
+-- seule la bulle d'une ligne de chaîne reçue par un talkie à la ceinture est ajoutée.
 -- Options sandbox (page BeltRadio) relues à chaque usage : BeltListening (écoute
 -- solo), MPBubble (bulle MP) ; BeltBattery dans BatmanRadio_BeltBattery.lua.
 
@@ -405,7 +405,7 @@ function BeltRadio.reset()
 end
 
 -- ----------------------------------------------------------------------------
--- 4. Bulle en MP pour une radio non tenue
+-- 4. Bulle en MP pour un talkie accroché à la ceinture
 -- ----------------------------------------------------------------------------
 
 -- Client MP : ZomboidRadio.DistributeToPlayerOnClient sert toutes les radios
@@ -464,11 +464,13 @@ end
 BeltRadio.DEFAULT_LINE_COLOR = { r = 1, g = 1, b = 1 }
 
 --- OnDeviceText sur un client MP : bulle « radio » au-dessus du joueur, comme
---- pour une radio en main, si la radio de l'inventaire principal qui reçoit
---- une ligne de chaîne (toutes les chaînes : décision de l'utilisateur du
---- 2026-10-10) n'est pas tenue et que la radio équipée ne reçoit pas déjà la
+--- pour une radio en main, si la radio qui reçoit une ligne de chaîne (toutes
+--- les chaînes : décision de l'utilisateur du 2026-10-10) est accrochée à la
+--- ceinture (isAttachedOnly) et que la radio équipée ne reçoit pas déjà la
 --- fréquence (le vanilla dessine alors la bulle) ; une seule fois si plusieurs
---- radios reçoivent la même ligne. Phrases radio des autres joueurs exclues
+--- radios reçoivent la même ligne. Une radio rangée (inventaire principal,
+--- ni accrochée ni tenue) n'a pas de bulle (décision 3 : elle ne reçoit rien ;
+--- en MP le vanilla la fait quand même recevoir au chat radio, sans plus). Phrases radio des autres joueurs exclues
 --- (ChatMessage, codes nil : chat radio). Le sourd n'arrive jamais ici
 --- (WaveSignalDevice.java:46). La couleur de la ligne n'est pas transmise à
 --- l'événement : celle que déclare le fournisseur pour nos chaînes, sinon
@@ -489,6 +491,8 @@ function BeltRadio.onDeviceTextMP(_guid, codes, _x, _y, _z, line, device)
         local player = getSpecificPlayer(playerNum)
         if player and not player:isDead() and device:getContainer() == player:getInventory() then
             if player:isEquipped(device) then return end
+            -- Radio rangée : chat radio vanilla seulement (décision 3).
+            if not BeltRadio.isAttachedOnly(player, device) then return end
             local equipped = player:getEquipedRadio()
             if equipped and BeltRadio.receives(equipped, frequency) then return end
             local now = getTimestampMs()

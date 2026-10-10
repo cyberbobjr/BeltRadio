@@ -10,7 +10,7 @@ Accrochez votre talkie-walkie à la ceinture et continuez d'écouter. En vanilla
 [*][b]Options de l'appareil[/b] sur un talkie-walkie accroché à la ceinture : le régler, l'allumer, régler le volume.
 [*]Sa fenêtre ne l'éteint plus, même pendant que vous le prenez en main.
 [*][b]Solo :[/b] un talkie-walkie allumé à la ceinture entend la station sur laquelle il est réglé (stations vanilla, alerte d'urgence, stations ajoutées par des mods), avec la bulle radio au-dessus du personnage. L'orage le brouille comme un talkie-walkie en main.
-[*][b]Multijoueur :[/b] une ligne reçue par un talkie-walkie que vous ne tenez pas s'affiche aussi dans une bulle radio au-dessus du personnage, pas seulement dans le chat radio.
+[*][b]Multijoueur :[/b] une ligne reçue par un talkie-walkie accroché à la ceinture s'affiche aussi dans une bulle radio au-dessus du personnage, pas seulement dans le chat radio.
 [*]La pile s'use à la ceinture, comme en main.
 [/list]
 
@@ -25,7 +25,7 @@ Accrochez votre talkie-walkie à la ceinture et continuez d'écouter. En vanilla
 
 Page [b]Talkie-walkie à la ceinture[/b], toutes activées par défaut ; désactivée, chacune rend le comportement vanilla, même en cours de partie :
 [list]
-[*]Bulle pour une radio non tenue (multijoueur).
+[*]Bulle pour un talkie-walkie à la ceinture (multijoueur).
 [*]Usure de la pile à la ceinture.
 [*]Écoute à la ceinture (solo).
 [/list]

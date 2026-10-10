@@ -10,7 +10,7 @@ Häng dein Walkie-Talkie an den Gürtel und hör weiter zu. In Vanilla lässt si
 [*][b]Geräteeinstellung[/b] für ein Walkie-Talkie am Gürtel: einstellen, einschalten, Lautstärke regeln.
 [*]Sein Fenster schaltet es nicht mehr aus, auch nicht, während du es in die Hand nimmst.
 [*][b]Einzelspieler:[/b] Ein eingeschaltetes Walkie-Talkie am Gürtel empfängt den eingestellten Sender (Vanilla-Sender, Notfallsendung, von Mods hinzugefügte Sender), mit der Funk-Sprechblase über deiner Figur. Gewitter stören es wie ein Walkie-Talkie in der Hand.
-[*][b]Mehrspieler:[/b] Eine Zeile, die ein nicht gehaltenes Walkie-Talkie empfängt, erscheint auch in einer Funk-Sprechblase über deiner Figur, nicht nur im Funkchat.
+[*][b]Mehrspieler:[/b] Eine Zeile, die ein Walkie-Talkie am Gürtel empfängt, erscheint auch in einer Funk-Sprechblase über deiner Figur, nicht nur im Funkchat.
 [*]Die Batterie wird am Gürtel verbraucht, wie in der Hand.
 [/list]
 
@@ -25,7 +25,7 @@ Häng dein Walkie-Talkie an den Gürtel und hör weiter zu. In Vanilla lässt si
 
 Seite [b]Walkie-Talkie am Gürtel[/b], standardmäßig alle an; ausgeschaltet stellt jede das Vanilla-Verhalten wieder her, auch mitten im Spiel:
 [list]
-[*]Sprechblase für ein nicht gehaltenes Funkgerät (Mehrspieler).
+[*]Sprechblase für ein Walkie-Talkie am Gürtel (Mehrspieler).
 [*]Batterieverbrauch am Gürtel.
 [*]Empfang am Gürtel (Einzelspieler).
 [/list]

@@ -26,7 +26,7 @@ Analyse de référence : `analyse-mod-radio-commun.md` (fichier de travail, hors
 
 ## Application dans 0.1.0
 
-- Décision 3 : le récepteur solo ne sert que la radio accrochée (`isAttachedOnly`) ; aucune réception « radio rangée » (`pocketChannels` proposé par l'analyse non retenu). En MP, la bulle reste ajoutée pour toute radio non tenue de l'inventaire principal, ceinture comme rangée, puisque le vanilla y fait déjà recevoir la ligne (chat radio) : la règle ne s'applique qu'en solo.
+- Décision 3 : le récepteur solo ne sert que la radio accrochée (`isAttachedOnly`) ; aucune réception « radio rangée » (`pocketChannels` proposé par l'analyse non retenu). En MP, le vanilla fait quand même recevoir la ligne à une radio rangée de l'inventaire principal (chat radio) : la règle ne s'applique qu'en solo, mais la bulle ajoutée par ce mod est réservée au talkie accroché à la ceinture (`isAttachedOnly`, 0.1.1), une radio rangée n'en a pas.
 - Décision 4 : `BatmanRadioSupport.canTransmitWith(player, radio)` dans `media/lua/shared` (client et serveur), raison `"belt"` pour une radio accrochée. Chaque mod l'appelle et affiche son propre message.
 - Décision 5 : options `BeltRadio.MPBubble`, `BeltRadio.BeltBattery`, `BeltRadio.BeltListening`, vraies par défaut, fausses = vanilla, lues à chaque usage ; traductions dans les 8 langues de Military Drop (CN, DE, EN, ES, FR, PT, PTBR, RU).
 - Décision 2 : chemins `media/lua/client/BatmanRadio/…`, `media/lua/shared/BatmanRadio/…` et globale `BatmanRadioSupport` conservés ; nouveau fichier `shared/BatmanRadio/BatmanRadio_Support.lua` (VERSION, options, prédicat d'émission).

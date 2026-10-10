@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 — 2026-10-10
+
+### For players
+- Multiplayer: the radio bubble is only added for a walkie-talkie hooked on the belt. A radio stored in the inventory gets no bubble (the vanilla game still shows its lines in the radio chat), in line with "a stored radio hears nothing".
+
 ## 0.1.0 — 2026-10-10
 
 First version, extracted from Military Drop (shared receiver `BatmanRadio`).

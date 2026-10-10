@@ -10,7 +10,7 @@ Prenda o walkie-talkie ao cinto e continue a ouvir. No vanilla, um walkie-talkie
 [*][b]Opções do Dispositivo[/b] num walkie-talkie preso ao cinto: sintonizar, ligar, ajustar o volume.
 [*]A janela já não o desliga, mesmo enquanto o pega na mão.
 [*][b]Um jogador:[/b] um walkie-talkie ligado no cinto ouve a estação em que está sintonizado (estações vanilla, alerta de emergência, estações adicionadas por mods), com o balão de rádio por cima da personagem. As tempestades interferem como num walkie-talkie na mão.
-[*][b]Multijogador:[/b] uma linha recebida por um walkie-talkie que não está na mão também aparece num balão de rádio por cima da personagem, não só no chat de rádio.
+[*][b]Multijogador:[/b] uma linha recebida por um walkie-talkie preso ao cinto também aparece num balão de rádio por cima da personagem, não só no chat de rádio.
 [*]A pilha gasta-se no cinto, como na mão.
 [/list]
 
@@ -25,7 +25,7 @@ Prenda o walkie-talkie ao cinto e continue a ouvir. No vanilla, um walkie-talkie
 
 Página [b]Walkie-talkie no cinto[/b], todas ativas por defeito; desativada, cada uma repõe o comportamento vanilla, mesmo a meio do jogo:
 [list]
-[*]Balão para um rádio não segurado (multijogador).
+[*]Balão para um walkie-talkie no cinto (multijogador).
 [*]Consumo da pilha no cinto.
 [*]Escuta no cinto (um jogador).
 [/list]
