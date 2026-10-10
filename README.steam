@@ -1,0 +1,44 @@
+[h1]Belt Walkie-Talkie[/h1]
+
+[b]Build 42.21 · Singleplayer & Multiplayer · No other mod required[/b]
+
+Hook your walkie-talkie on your belt and keep listening. In vanilla, a walkie-talkie on the belt cannot be tuned, switches off as soon as its window is open and hears nothing in singleplayer. This mod fixes that, with your hands free.
+
+[h2]What it does[/h2]
+
+[list]
+[*][b]Device Options[/b] on a walkie-talkie hooked on the belt: tune it, switch it on, set the volume.
+[*]Its window no longer switches it off, even while you take it in hand.
+[*][b]Singleplayer:[/b] a switched-on walkie-talkie on the belt hears the station it is tuned to (vanilla stations, emergency broadcast, stations added by mods), with the radio bubble above your character. Storms scramble it like a walkie-talkie in hand.
+[*][b]Multiplayer:[/b] a line received by a walkie-talkie you are not holding also shows in a radio bubble above your character, not only in the radio chat.
+[*]The battery drains at the belt, as in hand.
+[/list]
+
+[h2]What it does not do[/h2]
+
+[list]
+[*]You cannot transmit from the belt: take the walkie-talkie in hand (or wear a radio on your back) to talk.
+[*]A radio stored in your inventory or in a bag hears nothing in singleplayer, as in vanilla.
+[/list]
+
+[h2]Sandbox options[/h2]
+
+Page [b]Belt Walkie-Talkie[/b], all on by default; turned off, each one gives back the vanilla behaviour, even in the middle of a game:
+[list]
+[*]Bubble for an unheld radio (multiplayer).
+[*]Battery drain at the belt.
+[*]Listening at the belt (singleplayer).
+[/list]
+
+[h2]Compatibility[/h2]
+
+[list]
+[*]Shared receiver of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3811752923]Military Drop[/url] and [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3813648615]Operation Artemis[/url]: from their next update, they use it when it is enabled.
+[*]Better Walkie Talkies is supported: it keeps its own battery and voice handling.
+[*]Other mods can add their stations and colours through a small Lua API.
+[/list]
+
+[h2]Support the project[/h2]
+
+Enjoying the mod? A coffee helps fund new features and translations.
+[url=https://ko-fi.com/Z8Z8QJV31][img]https://storage.ko-fi.com/cdn/kofi6.png?v=6[/img][/url]

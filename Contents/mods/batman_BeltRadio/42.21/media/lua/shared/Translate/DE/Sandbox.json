@@ -1,0 +1,9 @@
+{
+    "Sandbox_BeltRadio": "Walkie-Talkie am Gürtel",
+    "Sandbox_BeltRadio_MPBubble": "Sprechblase für ein nicht gehaltenes Funkgerät (Mehrspieler)",
+    "Sandbox_BeltRadio_MPBubble_tooltip": "Mehrspieler: Eine Zeile, die ein nicht gehaltenes Walkie-Talkie (Gürtel, Inventar) empfängt, erscheint auch in einer Funk-Sprechblase über dem Spieler, wie bei einem Walkie-Talkie in der Hand. Aus: Die Zeile erscheint nur im Funkchat (Vanilla).",
+    "Sandbox_BeltRadio_BeltBattery": "Batterieverbrauch am Gürtel",
+    "Sandbox_BeltRadio_BeltBattery_tooltip": "Ein eingeschaltetes Walkie-Talkie am Gürtel verbraucht jede Minute Batterie, wie in der Hand. Aus: Die Ladung bleibt am Gürtel eingefroren und der Verbrauch wird nachgeholt, sobald das Walkie-Talkie wieder in die Hand genommen wird (Vanilla).",
+    "Sandbox_BeltRadio_BeltListening": "Empfang am Gürtel (Einzelspieler)",
+    "Sandbox_BeltRadio_BeltListening_tooltip": "Einzelspieler: Ein eingeschaltetes Walkie-Talkie am Gürtel empfängt den eingestellten Sender. Aus: Nur ein Walkie-Talkie in der Hand oder ein Funkgerät auf dem Rücken empfängt etwas (Vanilla). Ein im Inventar verstautes Funkgerät empfängt im Einzelspieler nie etwas."
+}

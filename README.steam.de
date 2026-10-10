@@ -1,0 +1,44 @@
+[h1]Walkie-Talkie am Gürtel[/h1]
+
+[b]Build 42.21 · Einzel- und Mehrspieler · Keine weiteren Mods nötig[/b]
+
+Häng dein Walkie-Talkie an den Gürtel und hör weiter zu. In Vanilla lässt sich ein Walkie-Talkie am Gürtel nicht einstellen, schaltet sich aus, sobald sein Fenster offen ist, und empfängt im Einzelspieler nichts. Dieser Mod behebt das, mit freien Händen.
+
+[h2]Was der Mod macht[/h2]
+
+[list]
+[*][b]Geräteeinstellung[/b] für ein Walkie-Talkie am Gürtel: einstellen, einschalten, Lautstärke regeln.
+[*]Sein Fenster schaltet es nicht mehr aus, auch nicht, während du es in die Hand nimmst.
+[*][b]Einzelspieler:[/b] Ein eingeschaltetes Walkie-Talkie am Gürtel empfängt den eingestellten Sender (Vanilla-Sender, Notfallsendung, von Mods hinzugefügte Sender), mit der Funk-Sprechblase über deiner Figur. Gewitter stören es wie ein Walkie-Talkie in der Hand.
+[*][b]Mehrspieler:[/b] Eine Zeile, die ein nicht gehaltenes Walkie-Talkie empfängt, erscheint auch in einer Funk-Sprechblase über deiner Figur, nicht nur im Funkchat.
+[*]Die Batterie wird am Gürtel verbraucht, wie in der Hand.
+[/list]
+
+[h2]Was er nicht macht[/h2]
+
+[list]
+[*]Vom Gürtel aus kann nicht gesendet werden: Nimm das Walkie-Talkie in die Hand (oder trag ein Funkgerät auf dem Rücken), um zu sprechen.
+[*]Ein im Inventar oder in einer Tasche verstautes Funkgerät empfängt im Einzelspieler nichts, wie in Vanilla.
+[/list]
+
+[h2]Sandbox-Optionen[/h2]
+
+Seite [b]Walkie-Talkie am Gürtel[/b], standardmäßig alle an; ausgeschaltet stellt jede das Vanilla-Verhalten wieder her, auch mitten im Spiel:
+[list]
+[*]Sprechblase für ein nicht gehaltenes Funkgerät (Mehrspieler).
+[*]Batterieverbrauch am Gürtel.
+[*]Empfang am Gürtel (Einzelspieler).
+[/list]
+
+[h2]Kompatibilität[/h2]
+
+[list]
+[*]Gemeinsamer Empfänger von [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3811752923]Military Drop[/url] und [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3813648615]Operation Artemis[/url]: Ab ihrem nächsten Update nutzen sie ihn, wenn er aktiviert ist.
+[*]Better Walkie Talkies wird unterstützt: Es behält seine eigene Batterie- und Sprachverwaltung.
+[*]Andere Mods können über eine kleine Lua-API ihre Sender und Farben hinzufügen.
+[/list]
+
+[h2]Das Projekt unterstützen[/h2]
+
+Gefällt dir der Mod? Ein Kaffee hilft, neue Funktionen und Übersetzungen zu finanzieren.
+[url=https://ko-fi.com/Z8Z8QJV31][img]https://storage.ko-fi.com/cdn/kofi6.png?v=6[/img][/url]

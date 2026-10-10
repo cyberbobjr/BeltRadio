@@ -1,0 +1,44 @@
+[h1]Talkie-walkie à la ceinture[/h1]
+
+[b]Build 42.21 · Solo et multijoueur · Aucun autre mod requis[/b]
+
+Accrochez votre talkie-walkie à la ceinture et continuez d'écouter. En vanilla, un talkie-walkie à la ceinture ne se règle pas, s'éteint dès que sa fenêtre est ouverte et n'entend rien en solo. Ce mod corrige cela, les mains libres.
+
+[h2]Ce que fait le mod[/h2]
+
+[list]
+[*][b]Options de l'appareil[/b] sur un talkie-walkie accroché à la ceinture : le régler, l'allumer, régler le volume.
+[*]Sa fenêtre ne l'éteint plus, même pendant que vous le prenez en main.
+[*][b]Solo :[/b] un talkie-walkie allumé à la ceinture entend la station sur laquelle il est réglé (stations vanilla, alerte d'urgence, stations ajoutées par des mods), avec la bulle radio au-dessus du personnage. L'orage le brouille comme un talkie-walkie en main.
+[*][b]Multijoueur :[/b] une ligne reçue par un talkie-walkie que vous ne tenez pas s'affiche aussi dans une bulle radio au-dessus du personnage, pas seulement dans le chat radio.
+[*]La pile s'use à la ceinture, comme en main.
+[/list]
+
+[h2]Ce qu'il ne fait pas[/h2]
+
+[list]
+[*]On n'émet pas depuis la ceinture : prenez le talkie-walkie en main (ou portez une radio sur le dos) pour parler.
+[*]Une radio rangée dans l'inventaire ou dans un sac n'entend rien en solo, comme en vanilla.
+[/list]
+
+[h2]Options bac à sable[/h2]
+
+Page [b]Talkie-walkie à la ceinture[/b], toutes activées par défaut ; désactivée, chacune rend le comportement vanilla, même en cours de partie :
+[list]
+[*]Bulle pour une radio non tenue (multijoueur).
+[*]Usure de la pile à la ceinture.
+[*]Écoute à la ceinture (solo).
+[/list]
+
+[h2]Compatibilité[/h2]
+
+[list]
+[*]Récepteur commun de [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3811752923]Military Drop[/url] et d'[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3813648615]Opération Artemis[/url] : dès leur prochaine mise à jour, ils l'utilisent quand il est activé.
+[*]Better Walkie Talkies est pris en charge : il garde sa propre gestion de la pile et de la voix.
+[*]D'autres mods peuvent ajouter leurs stations et leurs couleurs par une petite API Lua.
+[/list]
+
+[h2]Soutenir le projet[/h2]
+
+Le mod vous plaît ? Un café aide à financer de nouvelles fonctions et traductions.
+[url=https://ko-fi.com/Z8Z8QJV31][img]https://storage.ko-fi.com/cdn/kofi6.png?v=6[/img][/url]

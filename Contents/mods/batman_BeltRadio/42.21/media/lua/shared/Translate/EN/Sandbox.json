@@ -1,0 +1,9 @@
+{
+    "Sandbox_BeltRadio": "Belt Walkie-Talkie",
+    "Sandbox_BeltRadio_MPBubble": "Bubble for an unheld radio (multiplayer)",
+    "Sandbox_BeltRadio_MPBubble_tooltip": "Multiplayer: a line received by a walkie-talkie that is not held (belt, inventory) is also shown in a radio bubble above the player, as for a walkie-talkie in hand. Off: the line only appears in the radio chat (vanilla).",
+    "Sandbox_BeltRadio_BeltBattery": "Battery drain at the belt",
+    "Sandbox_BeltRadio_BeltBattery_tooltip": "A switched-on walkie-talkie hooked on the belt uses its battery every minute, as in hand. Off: the charge stays frozen at the belt and the drain is caught up when the walkie-talkie is taken in hand again (vanilla).",
+    "Sandbox_BeltRadio_BeltListening": "Listening at the belt (singleplayer)",
+    "Sandbox_BeltRadio_BeltListening_tooltip": "Singleplayer: a switched-on walkie-talkie hooked on the belt hears the station it is tuned to. Off: only a walkie-talkie in hand or a radio on the back hears anything (vanilla). A radio stored in the inventory never hears anything in singleplayer."
+}

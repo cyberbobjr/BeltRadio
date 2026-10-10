@@ -1,0 +1,19 @@
+VERSION = 1,
+
+option BeltRadio.MPBubble
+{
+    type = boolean, default = true,
+    page = BeltRadio, translation = BeltRadio_MPBubble,
+}
+
+option BeltRadio.BeltBattery
+{
+    type = boolean, default = true,
+    page = BeltRadio, translation = BeltRadio_BeltBattery,
+}
+
+option BeltRadio.BeltListening
+{
+    type = boolean, default = true,
+    page = BeltRadio, translation = BeltRadio_BeltListening,
+}

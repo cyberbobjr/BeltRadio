@@ -1,0 +1,9 @@
+{
+    "Sandbox_BeltRadio": "腰间对讲机",
+    "Sandbox_BeltRadio_MPBubble": "未手持对讲机的气泡（多人）",
+    "Sandbox_BeltRadio_MPBubble_tooltip": "多人游戏：未手持（腰间、物品栏）的对讲机收到的消息，也会像手持对讲机一样，在玩家头顶以无线电气泡显示。关闭：消息只出现在无线电聊天中（原版）。",
+    "Sandbox_BeltRadio_BeltBattery": "腰间电池消耗",
+    "Sandbox_BeltRadio_BeltBattery_tooltip": "挂在腰间且已开启的对讲机每分钟消耗电池，与手持时相同。关闭：腰间时电量保持不变，重新拿到手上时补算消耗（原版）。",
+    "Sandbox_BeltRadio_BeltListening": "腰间收听（单人）",
+    "Sandbox_BeltRadio_BeltListening_tooltip": "单人游戏：挂在腰间且已开启的对讲机能收听其调到的电台。关闭：只有手持的对讲机或背上的无线电能收听（原版）。放在物品栏中的无线电在单人游戏中永远收不到任何内容。"
+}

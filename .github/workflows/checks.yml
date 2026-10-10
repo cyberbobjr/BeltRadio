@@ -1,0 +1,25 @@
+name: checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install luacheck and lupa
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lua-check
+          python -m pip install lupa pillow
+
+      # Sans le jeu, la vérification de casse et les tests BWT sont ignorés.
+      - name: Run checks
+        run: python tests/run_all.py --require-luacheck

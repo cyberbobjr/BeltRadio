@@ -1,0 +1,44 @@
+[h1]Walkie-talkie no cinto[/h1]
+
+[b]Build 42.21 · Um jogador e multijogador · Nenhum outro mod necessário[/b]
+
+Prenda seu walkie-talkie no cinto e continue ouvindo. No vanilla, um walkie-talkie no cinto não pode ser sintonizado, desliga assim que a janela é aberta e não ouve nada no modo um jogador. Este mod corrige isso, com as mãos livres.
+
+[h2]O que ele faz[/h2]
+
+[list]
+[*][b]Opções do Dispositivo[/b] em um walkie-talkie preso no cinto: sintonizar, ligar, ajustar o volume.
+[*]A janela não o desliga mais, mesmo enquanto você o pega na mão.
+[*][b]Um jogador:[/b] um walkie-talkie ligado no cinto ouve a estação em que está sintonizado (estações vanilla, alerta de emergência, estações adicionadas por mods), com o balão de rádio acima do personagem. Tempestades interferem como em um walkie-talkie na mão.
+[*][b]Multijogador:[/b] uma linha recebida por um walkie-talkie que você não está segurando também aparece em um balão de rádio acima do personagem, não só no chat de rádio.
+[*]A bateria é consumida no cinto, como na mão.
+[/list]
+
+[h2]O que ele não faz[/h2]
+
+[list]
+[*]Não dá para transmitir pelo cinto: pegue o walkie-talkie na mão (ou use um rádio nas costas) para falar.
+[*]Um rádio guardado no inventário ou em uma bolsa não ouve nada no modo um jogador, como no vanilla.
+[/list]
+
+[h2]Opções de sandbox[/h2]
+
+Página [b]Walkie-talkie no cinto[/b], todas ativadas por padrão; desativada, cada uma devolve o comportamento vanilla, mesmo no meio da partida:
+[list]
+[*]Balão para um rádio não segurado (multijogador).
+[*]Consumo da bateria no cinto.
+[*]Escuta no cinto (um jogador).
+[/list]
+
+[h2]Compatibilidade[/h2]
+
+[list]
+[*]Receptor comum de [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3811752923]Military Drop[/url] e [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3813648615]Operation Artemis[/url]: a partir da próxima atualização, eles o usam quando está ativado.
+[*]Better Walkie Talkies é compatível: ele mantém sua própria gestão da bateria e da voz.
+[*]Outros mods podem adicionar suas estações e cores por uma pequena API Lua.
+[/list]
+
+[h2]Apoie o projeto[/h2]
+
+Gostou do mod? Um café ajuda a financiar novas funções e traduções.
+[url=https://ko-fi.com/Z8Z8QJV31][img]https://storage.ko-fi.com/cdn/kofi6.png?v=6[/img][/url]
