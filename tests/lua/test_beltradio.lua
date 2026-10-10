@@ -16,6 +16,7 @@ local function makeRadio(opts)
         getIsPortable = true, getIsTurnedOn = true, getIsTelevision = false, getChannel = FREQ,
         getDeviceVolume = 0.5, getDeviceVolumeRange = 12, isPlayingMedia = false, isNoTransmit = false,
         getIsBatteryPowered = true, getHasBattery = true, getPower = 0.8,
+        getHeadphoneType = -1, getDeviceSoundVolumeRange = 15,
     }
     for name, value in pairs(values) do
         local v = value
@@ -24,7 +25,9 @@ local function makeRadio(opts)
         end
         data[name] = function() return v end
     end
-    local radio = { kind = "Radio", said = {}, shown = {} }
+    RADIO_IDS = (RADIO_IDS or 0) + 1
+    local radio = { kind = "Radio", said = {}, shown = {}, id = RADIO_IDS }
+    radio.getID = function(self) return self.id end
     data.update = function() end -- batterie native couverte par test_beltbattery
     radio.getDeviceData = function() return data end
     radio.getContainer = function() return opts.container or INVENTORY end
@@ -75,6 +78,9 @@ local function makePlayer()
         self.bubbles[#self.bubbles + 1] = { text = text, r = r, g = g, b = b, font = font, range = range, tag = tag }
     end
     player.getInventory = function() return INVENTORY end
+    player.getX = function() return 100.5 end
+    player.getY = function() return 200.5 end
+    player.getZ = function() return 0 end
     player.isDead = function() return false end
     player.getAttachedItems = function(self)
         local list = self.attached
@@ -367,6 +373,26 @@ function T.belt_radio_hears_each_line_when_it_airs()
     AIRING.count = 1
     triggerEvent("OnTick")
     assertEq(#radio.said, 4, "nouvelle diffusion suivie depuis le début")
+end
+
+-- Bruit de réception (BatmanRadio_BeltNoise) : bloqué en vanilla à la ceinture.
+function T.belt_line_makes_a_zombie_noise_unless_option_is_off()
+    local radio = makeRadio()
+    PLAYER.attached = { radio }
+    startListening()
+    AIRING = makeBroadcast({ { "un", "TSRP" }, { "deux", "TSRP" }, { "trois", "TSRP" } })
+    AIRING.count = 1
+    triggerEvent("OnTick")
+    assertEq(#SOUNDS, 1, "bruit à la ligne reçue")
+    assertEq(SOUNDS[1].source, PLAYER, "bruit au joueur")
+    assertEq(SOUNDS[1].volume, 50, "100 × volume de l'appareil")
+    assertEq(SOUNDS[1].radius, 15, "portée getDeviceSoundVolumeRange")
+    CLOCK_MS = CLOCK_MS + 2000
+    SandboxVars.BeltRadio = { BeltNoise = false }
+    AIRING.count = 2
+    triggerEvent("OnTick")
+    assertEq(#radio.said, 2, "ligne toujours reçue")
+    assertEq(#SOUNDS, 1, "option fausse : aucun bruit ajouté")
 end
 
 function T.storm_scrambles_the_line_like_a_radio_in_hand()

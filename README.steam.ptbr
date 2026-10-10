@@ -1,6 +1,6 @@
 [h1]Walkie-talkie no cinto[/h1]
 
-[b]Build 42.21 · Um jogador e multijogador · Nenhum outro mod necessário[/b]
+[b]Build 42.21 · Um jogador e multijogador · Requer [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3694097672]TooltipLib[/url][/b]
 
 Prenda seu walkie-talkie no cinto e continue ouvindo. No vanilla, um walkie-talkie no cinto não pode ser sintonizado, desliga assim que a janela é aberta e não ouve nada no modo um jogador. Este mod corrige isso, com as mãos livres.
 
@@ -12,6 +12,8 @@ Prenda seu walkie-talkie no cinto e continue ouvindo. No vanilla, um walkie-talk
 [*][b]Um jogador:[/b] um walkie-talkie ligado no cinto ouve a estação em que está sintonizado (estações vanilla, alerta de emergência, estações adicionadas por mods), com o balão de rádio acima do personagem. Tempestades interferem como em um walkie-talkie na mão.
 [*][b]Multijogador:[/b] uma linha recebida por um walkie-talkie preso no cinto também aparece em um balão de rádio acima do personagem, não só no chat de rádio.
 [*]A bateria é consumida no cinto, como na mão.
+[*][b]Ruído:[/b] um walkie-talkie ligado no cinto faz um ruído que atrai os zumbis toda vez que recebe uma linha, como na mão (mesmo volume e alcance, nenhum com fones de ouvido).
+[*][b]Energia elétrica:[/b] com Elétrica 1, uma chave de fenda, 2 sucatas eletrônicas e 1 fio elétrico, adapte um walkie-talkie, um rádio HAM ou o rádio militar de mochila. Em uma área com eletricidade (gerador, ou rede elétrica dentro de um prédio), a bateria não se gasta mais e recarrega, mesmo desligado. Ainda é preciso uma bateria dentro. A dica do item mostra isso.
 [/list]
 
 [h2]O que ele não faz[/h2]
@@ -28,7 +30,9 @@ Página [b]Walkie-talkie no cinto[/b], todas ativadas por padrão; desativada, c
 [*]Balão para um walkie-talkie no cinto (multijogador).
 [*]Consumo da bateria no cinto.
 [*]Escuta no cinto (um jogador).
+[*]Ruído de um walkie-talkie no cinto.
 [/list]
+Recarga na energia elétrica: horas para encher uma bateria vazia (10 por padrão).
 
 [h2]Compatibilidade[/h2]
 

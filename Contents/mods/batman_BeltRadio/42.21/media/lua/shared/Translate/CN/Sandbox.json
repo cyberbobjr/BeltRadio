@@ -5,5 +5,9 @@
     "Sandbox_BeltRadio_BeltBattery": "腰间电池消耗",
     "Sandbox_BeltRadio_BeltBattery_tooltip": "挂在腰间且已开启的对讲机每分钟消耗电池，与手持时相同。关闭：腰间时电量保持不变，重新拿到手上时补算消耗（原版）。",
     "Sandbox_BeltRadio_BeltListening": "腰间收听（单人）",
-    "Sandbox_BeltRadio_BeltListening_tooltip": "单人游戏：挂在腰间且已开启的对讲机能收听其调到的电台。关闭：只有手持的对讲机或背上的无线电能收听（原版）。放在物品栏中的无线电在单人游戏中永远收不到任何内容。"
+    "Sandbox_BeltRadio_BeltListening_tooltip": "单人游戏：挂在腰间且已开启的对讲机能收听其调到的电台。关闭：只有手持的对讲机或背上的无线电能收听（原版）。放在物品栏中的无线电在单人游戏中永远收不到任何内容。",
+    "Sandbox_BeltRadio_BeltNoise": "腰间对讲机的噪音",
+    "Sandbox_BeltRadio_BeltNoise_tooltip": "挂在腰间的开启对讲机每收到一行内容，都会像手持时一样发出吸引僵尸的噪音（音量和范围相同，戴耳机时没有噪音）。关闭：只在收到第一行时发出噪音（原版）。",
+    "Sandbox_BeltRadio_MainsRechargeHours": "市电充电时间（小时）",
+    "Sandbox_BeltRadio_MainsRechargeHours_tooltip": "改装为市电供电的无线电在有电区域（发电机，或建筑内的公共电网）将空电池充满所需的游戏小时数。电池必须装在无线电中；接通市电时不再消耗电池。"
 }

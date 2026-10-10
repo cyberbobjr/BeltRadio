@@ -44,7 +44,11 @@ local function radio(frequency)
     data.getIsBatteryPowered = function() return true end
     data.getHasBattery = function() return true end
     data.getPower = function() return 1 end
-    local item = { kind = "Radio", said = {}, shown = {}, data = data }
+    data.getHeadphoneType = function() return -1 end
+    data.getDeviceSoundVolumeRange = function() return 15 end
+    RADIO_IDS = (RADIO_IDS or 0) + 1
+    local item = { kind = "Radio", said = {}, shown = {}, data = data, id = RADIO_IDS }
+    item.getID = function(self) return self.id end
     item.getDeviceData = function() return data end
     item.getContainer = function() return INVENTORY end
     -- Doublure fidèle des deux surcharges Java. 8 arguments (WaveSignalDevice.java:41-62) :
@@ -91,6 +95,9 @@ function T.setup()
     INVENTORY, CHANNELS, REQUESTS = {}, {}, {}
     PLAYER = { attached = {} }
     PLAYER.getInventory = function() return INVENTORY end
+    PLAYER.getX = function() return 100.5 end
+    PLAYER.getY = function() return 200.5 end
+    PLAYER.getZ = function() return 0 end
     PLAYER.getAttachedItems = function() return list(PLAYER.attached) end
     PLAYER.getEquipedRadio = function() return PLAYER.equipped end
     PLAYER.getPrimaryHandItem = function() return PLAYER.equipped end

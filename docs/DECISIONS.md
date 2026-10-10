@@ -30,3 +30,23 @@ Analyse de référence : `analyse-mod-radio-commun.md` (fichier de travail, hors
 - Décision 4 : `BatmanRadioSupport.canTransmitWith(player, radio)` dans `media/lua/shared` (client et serveur), raison `"belt"` pour une radio accrochée. Chaque mod l'appelle et affiche son propre message.
 - Décision 5 : options `BeltRadio.MPBubble`, `BeltRadio.BeltBattery`, `BeltRadio.BeltListening`, vraies par défaut, fausses = vanilla, lues à chaque usage ; traductions dans les 8 langues de Military Drop (CN, DE, EN, ES, FR, PT, PTBR, RU).
 - Décision 2 : chemins `media/lua/client/BatmanRadio/…`, `media/lua/shared/BatmanRadio/…` et globale `BatmanRadioSupport` conservés ; nouveau fichier `shared/BatmanRadio/BatmanRadio_Support.lua` (VERSION, options, prédicat d'émission).
+
+## Fonction « secteur » (décisions du 2026-10-10, appliquées par la version 1.1.0)
+
+Bricoler un talkie-walkie, une radio HAM ou une radio dorsale pour qu'il fonctionne sur le courant d'une zone électrifiée.
+
+1. **Recette** : garde l'appareil (`mode:keep`, canal, pile et ID conservés), consomme 2 `Base.ElectronicsScrap` et 1 `Base.ElectricWire`, garde un tournevis (`tags[base:screwdriver]`), exige `Electricity:1`, rapporte `xpAward = Electricity:10`, connue d'emblée (pas de `NeedToBeLearn`). `OnTest` refuse un appareil déjà modifié ; `OnCreate` (solo ou serveur) écrit `ModData.BatmanMains = { useDelta = <valeur d'origine> }` puis `syncItemFields`.
+2. **Appareils** : `WalkieTalkie1` à `5`, `WalkieTalkieMakeShift`, `HamRadio1`, `HamRadio2`, `HamRadioMakeShift`, `ManPackRadio`.
+3. **Zone électrifiée** : même règle que `DeviceData.canBePoweredHere` (`DeviceData.java:518-529`) : générateur (`haveElectricity`), ou réseau (`hasGridPower`) dans une pièce. Case du joueur pour une radio portée, case de l'`IsoRadio` pour un appareil posé.
+4. **Pile** : il faut une pile dans l'appareil. Sur le secteur, elle ne s'use plus (`setUseDelta(0)`, valeur d'origine remise hors zone) et **se recharge**, appareil allumé ou éteint, jusqu'à 1.
+5. **Durée de recharge** : option sandbox `BeltRadio.MainsRechargeHours` (heures de jeu de 0 à plein, 10 par défaut), lue à chaque usage.
+6. **Marquage** : ligne d'infobulle par TooltipLib (« Branché sur secteur », « en charge » le cas échéant).
+7. **TooltipLib devient un prérequis** : `require=\TooltipLib` dans `mod.info`, objet requis Steam (3694097672) et descriptions mises à jour.
+
+Autorité : client ou solo pour une radio portée (main, dos, ceinture) ; serveur ou solo pour un appareil posé. Limite MP à vérifier : la charge d'une radio portée n'est transmise au serveur que par les paquets de pile vanilla envoyés quand elle est allumée.
+
+## Bruit d'un talkie à la ceinture qui reçoit (décision du 2026-10-10, appliquée par la version 1.1.0)
+
+Constat (confirmé statiquement, 42.21) : la réception passe bien par `DeviceData.doReceiveSignal` (solo : `BeltRadio.deliver` → `Radio.AddDeviceText` ; MP : `ZomboidRadio.DistributeToPlayerOnClient` → `WaveSignalDevice.AddDeviceText`), qui émet `WorldSoundManager.addSound` seulement si `soundCounter <= 0`, puis le met à 120. Ce compteur ne baisse que dans `DeviceData.updateSimple`, appelé à chaque image pour la radio équipée, jamais par le vanilla pour une radio accrochée (notre gestionnaire de pile l'appelle une fois par minute de jeu). Résultat : un bruit à la première ligne de la session, puis presque plus rien.
+
+Décision (option A) : le mod émet son propre bruit à chaque réception d'un talkie allumé accroché à la ceinture, avec la formule vanilla (volume `100 × getDeviceVolume()`, portée `getDeviceSoundVolumeRange()`, aucun bruit avec écouteurs, volume nul exclu), limité à un bruit environ toutes les 2 s par radio, via `addSound` (transmis au serveur en MP). Détection : solo dans `deliver` ; MP par `OnDeviceText` (lignes de chaîne) et, à vérifier, `OnAddMessage` de l'onglet radio (messages radio des autres joueurs). Option sandbox `BeltRadio.BeltNoise`, vraie par défaut, fausse = vanilla.

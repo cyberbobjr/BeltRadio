@@ -8,11 +8,13 @@
 -- En MP, réception et VOIP restent gérées par le vanilla / Better Walkie Talkies ;
 -- seule la bulle d'une ligne de chaîne reçue par un talkie à la ceinture est ajoutée.
 -- Options sandbox (page BeltRadio) relues à chaque usage : BeltListening (écoute
--- solo), MPBubble (bulle MP) ; BeltBattery dans BatmanRadio_BeltBattery.lua.
+-- solo), MPBubble (bulle MP) ; BeltBattery dans BatmanRadio_BeltBattery.lua,
+-- BeltNoise dans BatmanRadio_BeltNoise.lua.
 
 require "ISUI/ISRadioAndTvMenu"
 require "RadioCom/ISRadioWindow"
 require "BatmanRadio/BatmanRadio_BeltBattery"
+local BeltNoise = require "BatmanRadio/BatmanRadio_BeltNoise"
 -- Partie partagée de l'API (VERSION, options, canTransmitWith) : même table.
 require "BatmanRadio/BatmanRadio_Support"
 local Compat = require "BatmanRadio/BatmanRadio_Compat"
@@ -254,6 +256,9 @@ function BeltRadio.deliver(line, frequency)
                 -- bulle exige player:isEquipped(radio), jamais vrai à la ceinture,
                 -- et le chat radio n'existe pas en solo (ISChat : MP seulement).
                 radio:AddDeviceText(text, r, g, b, nil, codes, -1)
+                -- Bruit de réception (option BeltNoise) : celui du vanilla est
+                -- bloqué à la ceinture (BatmanRadio_BeltNoise.lua).
+                BeltNoise.emit(player, radio)
             end
         end
     end

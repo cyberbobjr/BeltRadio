@@ -142,8 +142,9 @@ def check_mod_info(report):
         report.fail("versionMin=42.21 attendu")
     if "versionMax" in info:
         report.fail("versionMax rend le mod inactivable à la prochaine version du jeu")
-    if "require" in info:
-        report.fail("le mod commun ne dépend d'aucun autre mod")
+    # Seul prérequis : TooltipLib (infobulle des radios sur secteur, 1.1.0).
+    if info.get("require") != "\\TooltipLib":
+        report.fail("require=\\TooltipLib attendu (seul prérequis)")
     for key in ("poster", "icon"):
         if not (infos[0].parent / info.get(key, "?")).is_file():
             report.fail(f"{key}={info.get(key)} introuvable à côté de mod.info")
@@ -206,10 +207,12 @@ def check_sandbox(report):
     for name in options:
         if name not in used:
             report.fail(f"option {name} jamais lue par le Lua")
-        if not re.search(r"OPTION_DEFAULTS = \{[^}]*\b" + name + r" = true", defaults):
-            report.fail(f"option {name} sans valeur par défaut true dans OPTION_DEFAULTS")
+        block = re.search(r"option " + OPTION_PAGE + r"\." + name + r"\s*\{(.*?)\}", text, re.S).group(1)
+        default = re.search(r"default = (\w+)", block).group(1)
+        if not re.search(r"OPTION_DEFAULTS = \{[^}]*\b" + name + r" = " + default + r"\b", defaults):
+            report.fail(f"option {name} : OPTION_DEFAULTS différent du défaut {default} de sandbox-options.txt")
     if report.failures == before:
-        report.ok(f"{len(options)} options ({', '.join(options)}) lues, traduites, défaut true")
+        report.ok(f"{len(options)} options ({', '.join(options)}) lues, traduites, défauts cohérents")
 
 
 def check_translations(report):

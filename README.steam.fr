@@ -1,6 +1,6 @@
 [h1]Talkie-walkie à la ceinture[/h1]
 
-[b]Build 42.21 · Solo et multijoueur · Aucun autre mod requis[/b]
+[b]Build 42.21 · Solo et multijoueur · Nécessite [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3694097672]TooltipLib[/url][/b]
 
 Accrochez votre talkie-walkie à la ceinture et continuez d'écouter. En vanilla, un talkie-walkie à la ceinture ne se règle pas, s'éteint dès que sa fenêtre est ouverte et n'entend rien en solo. Ce mod corrige cela, les mains libres.
 
@@ -12,6 +12,8 @@ Accrochez votre talkie-walkie à la ceinture et continuez d'écouter. En vanilla
 [*][b]Solo :[/b] un talkie-walkie allumé à la ceinture entend la station sur laquelle il est réglé (stations vanilla, alerte d'urgence, stations ajoutées par des mods), avec la bulle radio au-dessus du personnage. L'orage le brouille comme un talkie-walkie en main.
 [*][b]Multijoueur :[/b] une ligne reçue par un talkie-walkie accroché à la ceinture s'affiche aussi dans une bulle radio au-dessus du personnage, pas seulement dans le chat radio.
 [*]La pile s'use à la ceinture, comme en main.
+[*][b]Bruit :[/b] un talkie-walkie allumé à la ceinture fait un bruit qui attire les zombies à chaque ligne reçue, comme en main (même volume et même portée, aucun avec des écouteurs).
+[*][b]Secteur :[/b] avec Électricité 1, un tournevis, 2 pièces électroniques et 1 fil électrique, bricolez un talkie-walkie, une radio HAM ou la radio militaire dorsale. Dans une zone électrifiée (générateur, ou réseau public dans un bâtiment), sa pile ne s'use plus et se recharge, même éteinte. Il faut toujours une pile dedans. L'infobulle de l'objet l'indique.
 [/list]
 
 [h2]Ce qu'il ne fait pas[/h2]
@@ -28,7 +30,9 @@ Page [b]Talkie-walkie à la ceinture[/b], toutes activées par défaut ; désact
 [*]Bulle pour un talkie-walkie à la ceinture (multijoueur).
 [*]Usure de la pile à la ceinture.
 [*]Écoute à la ceinture (solo).
+[*]Bruit d'un talkie-walkie à la ceinture.
 [/list]
+Recharge sur secteur : heures pour remplir une pile vide (10 par défaut).
 
 [h2]Compatibilité[/h2]
 

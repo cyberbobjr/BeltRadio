@@ -1,6 +1,6 @@
 # API Lua de Belt Walkie-Talkie (`BatmanRadioSupport`)
 
-Mod `batman_BeltRadio`, Build 42.21. Niveau d'API documenté ici : **`VERSION = 1`** (1.0.0).
+Mod `batman_BeltRadio`, Build 42.21. Niveau d'API documenté ici : **`VERSION = 2`** (1.1.0 ; 1 = 1.0.0).
 
 La table globale `BatmanRadioSupport` est complétée par deux fichiers :
 
@@ -10,6 +10,11 @@ La table globale `BatmanRadioSupport` est complétée par deux fichiers :
 | `media/lua/client/BatmanRadio/BatmanRadio_Core.lua` | solo, client MP (un dédié ne l'exécute pas) | récepteur : `register`, menu, fenêtre, écoute solo, bulle MP, aides |
 | `media/lua/client/BatmanRadio/BatmanRadio_BeltBattery.lua` | solo, client MP | pile à la ceinture (globale `BatmanBeltRadioBattery`) |
 | `media/lua/shared/BatmanRadio/BatmanRadio_Compat.lua` | partout | compatibilité Better Walkie Talkies (module renvoyé par `require`) |
+| `media/lua/client/BatmanRadio/BatmanRadio_BeltNoise.lua` | solo, client MP | bruit de réception à la ceinture (globale `BatmanBeltRadioNoise`, 2) |
+| `media/lua/shared/BatmanRadio/BatmanRadio_Mains.lua` | partout | radios bricolées pour le secteur (globale `BatmanRadioMains`, 2) |
+| `media/lua/client/BatmanRadio/BatmanRadio_MainsCarried.lua` | solo, client MP | pile des radios modifiées portées |
+| `media/lua/server/BatmanRadio/BatmanRadio_MainsPlaced.lua` | solo, serveur | pile des appareils modifiés posés |
+| `media/lua/client/BatmanRadio/BatmanRadio_MainsTooltip.lua` | solo, client MP | ligne d'infobulle (TooltipLib) |
 
 Chemins et globale identiques aux copies embarquées jusqu'ici dans Military Drop et Opération Artemis : une ancienne copie de même chemin chargée **après** ce mod le remplace (le dernier mod chargé gagne, quel que soit sa version). Un mod qui embarque une copie de secours doit donc la ranger sous **son propre chemin** (voir « Copie de secours »).
 
@@ -152,3 +157,21 @@ Pièges :
 - un mod qui exige ce mod (`require=batman_BeltRadio`) ne doit embarquer aucune copie.
 
 Depuis le 2026-10-10, Military Drop (0.5.1) et Opération Artemis (0.4.1) exigent ce mod (`require=`) : l'outil de génération des copies de secours a été retiré ; un mod qui veut une copie de secours l'écrit et la tient lui-même à jour.
+
+## Radios sur secteur : `BatmanRadioMains` (niveau 2, partout)
+
+```lua
+local Mains = require "BatmanRadio/BatmanRadio_Mains"   -- ou la globale BatmanRadioMains
+Mains.isModified(item)        -- radio bricolée par la recette BatmanRadio_AdaptRadioMains
+Mains.state(item)             -- { useDelta = usure d'origine par heure } (ModData "BatmanMains") ou nil
+Mains.isPoweredSquare(square) -- générateur, ou réseau public dans une pièce (règle de DeviceData.canBePoweredHere)
+Mains.rechargeHours()         -- option MainsRechargeHours (au moins 1)
+```
+
+Sur une case électrifiée, l'appareil modifié a `useDelta = 0` et sa charge monte ; ailleurs, l'usure d'origine est remise. Un mod qui change lui-même `setUseDelta` d'une radio modifiée voit sa valeur écrasée à la minute suivante.
+
+## Bruit de réception : `BatmanBeltRadioNoise.emit(player, radio)` (niveau 2, client)
+
+Émet le bruit vanilla d'une radio qui reçoit (volume `100 × getDeviceVolume()`, portée `getDeviceSoundVolumeRange()`, rien avec écouteurs, éteinte ou à volume nul), au plus une fois toutes les 2 s par radio, si l'option `BeltNoise` est vraie. Renvoie `true` si le bruit est parti. Le récepteur l'appelle déjà pour les lignes livrées à la ceinture (solo) et pour les lignes du chat radio (client MP).
+
+Options ajoutées : `BeltNoise` (booléen, vrai), `MainsRechargeHours` (entier, 10) ; `option("MainsRechargeHours")` rend un nombre.

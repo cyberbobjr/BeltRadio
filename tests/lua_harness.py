@@ -54,11 +54,15 @@ function loadMod(rel)
 end
 
 -- Modules du mod rangés dans media/lua/shared (les autres sont dans client).
-SHARED_MODULES = { ["BatmanRadio/BatmanRadio_Compat"] = true, ["BatmanRadio/BatmanRadio_Support"] = true }
+SHARED_MODULES = { ["BatmanRadio/BatmanRadio_Compat"] = true, ["BatmanRadio/BatmanRadio_Support"] = true,
+    ["BatmanRadio/BatmanRadio_Mains"] = true }
+-- Modules rangés dans media/lua/server.
+SERVER_MODULES = { ["BatmanRadio/BatmanRadio_MainsPlaced"] = true }
 
 --- Chemin d'un module BatmanRadio/... sous media/lua.
 function modulePath(name)
-    return (SHARED_MODULES[name] and "shared/" or "client/") .. name .. ".lua"
+    local folder = (SHARED_MODULES[name] and "shared/") or (SERVER_MODULES[name] and "server/") or "client/"
+    return folder .. name .. ".lua"
 end
 
 -- Charger réellement les seuls modules du mod, une fois chacun (comme
@@ -94,6 +98,15 @@ function assertTrue(value, message)
         error(message or "assertTrue", 2)
     end
 end
+
+-- Bruits du monde (addSound global, LuaManager.java:9239) : relevés dans SOUNDS.
+SOUNDS = {}
+addSound = function(source, x, y, z, radius, volume)
+    SOUNDS[#SOUNDS + 1] = { source = source, x = x, y = y, z = z, radius = radius, volume = volume }
+end
+-- Horloge réelle (ms) : CLOCK_MS, avancée par les tests.
+CLOCK_MS = 1000000
+getTimestampMs = function() return CLOCK_MS end
 
 -- Events : Add sans dédoublonnage et Remove, comme LuaEventManager.
 Events = setmetatable({}, { __index = function(events, name)

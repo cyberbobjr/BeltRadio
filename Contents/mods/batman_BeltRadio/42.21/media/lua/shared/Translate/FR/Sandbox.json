@@ -5,5 +5,9 @@
     "Sandbox_BeltRadio_BeltBattery": "Usure de la pile à la ceinture",
     "Sandbox_BeltRadio_BeltBattery_tooltip": "Un talkie-walkie allumé accroché à la ceinture consomme sa pile chaque minute, comme en main. Désactivé : la charge reste figée à la ceinture et la consommation est rattrapée quand le talkie-walkie est repris en main (vanilla).",
     "Sandbox_BeltRadio_BeltListening": "Écoute à la ceinture (solo)",
-    "Sandbox_BeltRadio_BeltListening_tooltip": "Solo : un talkie-walkie allumé accroché à la ceinture entend la station sur laquelle il est réglé. Désactivé : seuls un talkie-walkie en main ou une radio sur le dos entendent quelque chose (vanilla). Une radio rangée dans l'inventaire n'entend jamais rien en solo."
+    "Sandbox_BeltRadio_BeltListening_tooltip": "Solo : un talkie-walkie allumé accroché à la ceinture entend la station sur laquelle il est réglé. Désactivé : seuls un talkie-walkie en main ou une radio sur le dos entendent quelque chose (vanilla). Une radio rangée dans l'inventaire n'entend jamais rien en solo.",
+    "Sandbox_BeltRadio_BeltNoise": "Bruit d'un talkie-walkie à la ceinture",
+    "Sandbox_BeltRadio_BeltNoise_tooltip": "Un talkie-walkie allumé accroché à la ceinture fait un bruit qui attire les zombies à chaque ligne reçue, comme en main (même volume et même portée, aucun avec des écouteurs). Désactivé : il ne fait du bruit qu'à la première ligne reçue (vanilla).",
+    "Sandbox_BeltRadio_MainsRechargeHours": "Recharge sur secteur (heures)",
+    "Sandbox_BeltRadio_MainsRechargeHours_tooltip": "Heures de jeu pour qu'une radio bricolée pour le secteur recharge une pile vide dans une zone électrifiée (générateur, ou réseau public dans un bâtiment). La pile doit être dans la radio ; sur le secteur, elle ne s'use plus."
 }

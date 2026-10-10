@@ -17,3 +17,15 @@ option BeltRadio.BeltListening
     type = boolean, default = true,
     page = BeltRadio, translation = BeltRadio_BeltListening,
 }
+
+option BeltRadio.BeltNoise
+{
+    type = boolean, default = true,
+    page = BeltRadio, translation = BeltRadio_BeltNoise,
+}
+
+option BeltRadio.MainsRechargeHours
+{
+    type = integer, min = 1, max = 240, default = 10,
+    page = BeltRadio, translation = BeltRadio_MainsRechargeHours,
+}

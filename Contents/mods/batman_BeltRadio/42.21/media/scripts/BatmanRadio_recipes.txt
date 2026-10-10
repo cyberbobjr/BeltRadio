@@ -1,0 +1,22 @@
+module Base
+{
+    craftRecipe BatmanRadio_AdaptRadioMains
+    {
+        timedAction = MakingElectrical,
+        time = 100,
+        SkillRequired = Electricity:1,
+        OnTest = BatmanRadioMains.onTestAdapt,
+        OnCreate = BatmanRadioMains.onCreateAdapt,
+        Tags = InHandCraft;Electrical,
+        category = Electrical,
+        xpAward = Electricity:10,
+        AllowBatchCraft = false,
+        inputs
+        {
+            item 1 [Base.WalkieTalkie1;Base.WalkieTalkie2;Base.WalkieTalkie3;Base.WalkieTalkie4;Base.WalkieTalkie5;Base.WalkieTalkieMakeShift;Base.HamRadio1;Base.HamRadio2;Base.HamRadioMakeShift;Base.ManPackRadio] mode:keep flags[NoBrokenItems],
+            item 2 [Base.ElectronicsScrap] flags[NoBrokenItems],
+            item 1 [Base.ElectricWire] flags[NoBrokenItems],
+            item 1 tags[base:screwdriver] mode:keep flags[NoBrokenItems],
+        }
+    }
+}

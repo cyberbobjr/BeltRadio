@@ -5,5 +5,9 @@
     "Sandbox_BeltRadio_BeltBattery": "Consumo da bateria no cinto",
     "Sandbox_BeltRadio_BeltBattery_tooltip": "Um walkie-talkie ligado preso no cinto gasta a bateria a cada minuto, como na mão. Desativado: a carga fica congelada no cinto e o consumo é recuperado quando o walkie-talkie volta para a mão (vanilla).",
     "Sandbox_BeltRadio_BeltListening": "Escuta no cinto (um jogador)",
-    "Sandbox_BeltRadio_BeltListening_tooltip": "Modo um jogador: um walkie-talkie ligado preso no cinto ouve a estação em que está sintonizado. Desativado: só um walkie-talkie na mão ou um rádio nas costas ouvem alguma coisa (vanilla). Um rádio guardado no inventário nunca ouve nada no modo um jogador."
+    "Sandbox_BeltRadio_BeltListening_tooltip": "Modo um jogador: um walkie-talkie ligado preso no cinto ouve a estação em que está sintonizado. Desativado: só um walkie-talkie na mão ou um rádio nas costas ouvem alguma coisa (vanilla). Um rádio guardado no inventário nunca ouve nada no modo um jogador.",
+    "Sandbox_BeltRadio_BeltNoise": "Ruído de um walkie-talkie no cinto",
+    "Sandbox_BeltRadio_BeltNoise_tooltip": "Um walkie-talkie ligado preso no cinto faz um ruído que atrai os zumbis toda vez que recebe uma linha, como na mão (mesmo volume e alcance, nenhum com fones de ouvido). Desligado: só faz ruído na primeira linha recebida (vanilla).",
+    "Sandbox_BeltRadio_MainsRechargeHours": "Recarga na energia elétrica (horas)",
+    "Sandbox_BeltRadio_MainsRechargeHours_tooltip": "Horas de jogo para um rádio adaptado à energia elétrica recarregar uma pilha vazia em uma área com eletricidade (gerador, ou rede elétrica dentro de um prédio). A pilha precisa estar no rádio; na energia elétrica, ela não se gasta mais."
 }
