@@ -1,6 +1,6 @@
 # API Lua de Belt Walkie-Talkie (`BatmanRadioSupport`)
 
-Mod `batman_BeltRadio`, Build 42.21. Niveau d'API documenté ici : **`VERSION = 1`** (0.1.0, 0.1.1).
+Mod `batman_BeltRadio`, Build 42.21. Niveau d'API documenté ici : **`VERSION = 1`** (1.0.0).
 
 La table globale `BatmanRadioSupport` est complétée par deux fichiers :
 
