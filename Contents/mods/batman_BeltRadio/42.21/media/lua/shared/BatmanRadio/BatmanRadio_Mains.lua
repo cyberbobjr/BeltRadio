@@ -36,16 +36,39 @@ function Mains.isEligible(item)
     return data ~= nil and data:getIsBatteryPowered()
 end
 
---- État de l'appareil modifié (table de sa ModData), ou nil.
+--- État de l'appareil modifié, ou nil. item : objet d'inventaire ou IsoRadio
+--- posé comme tuile. La clé est cherchée à la racine de la ModData, puis dans
+--- movableData : le ramassage d'un meuble (ISMoveableSpriteProps.lua:1403-1404)
+--- ne recopie que cette table dans l'objet créé, la pose la recopie aussi (:2423).
 function Mains.state(item)
     if item == nil or not item:hasModData() then
         return nil
     end
-    local state = item:getModData()[Mains.MODDATA_KEY]
+    local modData = item:getModData()
+    local state = modData[Mains.MODDATA_KEY]
+    if type(state) == "table" then
+        return state
+    end
+    local movable = modData.movableData
+    state = type(movable) == "table" and movable[Mains.MODDATA_KEY] or nil
     if type(state) == "table" then
         return state
     end
     return nil
+end
+
+--- Note l'état dans movableData d'un IsoRadio posé comme tuile, pour que
+--- l'objet rendu par le ramassage reste modifié. Renvoie true si ajouté.
+function Mains.keepOnPickup(object, state)
+    local modData = object:getModData()
+    if type(modData.movableData) ~= "table" then
+        modData.movableData = {}
+    end
+    if type(modData.movableData[Mains.MODDATA_KEY]) == "table" then
+        return false
+    end
+    modData.movableData[Mains.MODDATA_KEY] = { useDelta = state.useDelta }
+    return true
 end
 
 function Mains.isModified(item)

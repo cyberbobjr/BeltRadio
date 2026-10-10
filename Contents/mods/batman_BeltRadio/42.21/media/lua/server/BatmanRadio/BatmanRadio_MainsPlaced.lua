@@ -1,10 +1,16 @@
 -- Belt Walkie-Talkie (batman_BeltRadio) : pile d'un appareil bricolé pour le
--- secteur et posé au sol. Une radio posée est un IsoRadio sans sprite qui
--- reçoit le DeviceData de l'objet et ModData.RadioItemID = ID de l'objet
--- (ISDropWorldItemAction, ISTransferAction, ISDropVehicleItemAction, qui
--- déclenchent tous OnObjectAdded). Son DeviceData est mis à jour par le solo ou
--- le serveur (IsoWaveSignal.java:260-265) : ce fichier ne tourne pas sur un
--- client MP (media/lua/server y est aussi chargé).
+-- secteur et posé au sol. Deux sortes d'IsoRadio posés :
+-- - objet 3D au sol : IsoRadio sans sprite qui reçoit le DeviceData de l'objet
+--   et ModData.RadioItemID = ID de l'objet (ISDropWorldItemAction,
+--   ISTransferAction, ISDropVehicleItemAction, qui déclenchent tous OnObjectAdded) ;
+-- - tuile (radios HAM, « Placer » d'un talkie) : ISMoveableSpriteProps crée un
+--   IsoRadio avec sprite, l'objet d'inventaire disparaît. Le DeviceData suit, et
+--   la ModData de l'objet est recopiée dans l'IsoRadio (toute, ou movableData
+--   seule si elle existe, :2423-2429). Le ramassage ne rend que movableData
+--   (:1403-1404) : l'état y est donc aussi noté (Mains.keepOnPickup).
+-- Le DeviceData est mis à jour par le solo ou le serveur (IsoWaveSignal.java:260-265),
+-- et la pose comme le ramassage d'une tuile s'y exécutent (ISMoveablesAction:complete) :
+-- ce fichier ne tourne pas sur un client MP (media/lua/server y est aussi chargé).
 
 local Mains = require "BatmanRadio/BatmanRadio_Mains"
 
@@ -35,13 +41,29 @@ function Placed.linkedItem(object)
     return nil
 end
 
---- Suit l'objet s'il est un IsoRadio lié à un appareil modifié.
+--- État secteur d'un IsoRadio posé : celui de l'objet 3D lié, sinon le sien
+--- (tuile), alors aussi noté pour le ramassage.
+function Placed.stateOf(object)
+    if object:getModData().RadioItemID ~= nil then
+        local state = Mains.state(Placed.linkedItem(object))
+        if state then
+            return state
+        end
+    end
+    local state = Mains.state(object)
+    if state then
+        Mains.keepOnPickup(object, state)
+    end
+    return state
+end
+
+--- Suit l'objet s'il est un IsoRadio d'un appareil modifié.
 function Placed.consider(object)
     if object == nil or tracked[object] or not instanceof(object, "IsoWaveSignal")
-        or not object:hasModData() or object:getModData().RadioItemID == nil then
+        or not object:hasModData() then
         return
     end
-    local state = Mains.state(Placed.linkedItem(object))
+    local state = Placed.stateOf(object)
     if state then
         tracked[object] = { state = state }
         Placed.update(object, tracked[object], getGameTime():getMinutesStamp())

@@ -43,6 +43,8 @@ Bricoler un talkie-walkie, une radio HAM ou une radio dorsale pour qu'il fonctio
 6. **Marquage** : ligne d'infobulle par TooltipLib (« Branché sur secteur », « en charge » le cas échéant).
 7. **TooltipLib devient un prérequis** : `require=\TooltipLib` dans `mod.info`, objet requis Steam (3694097672) et descriptions mises à jour.
 
+8. **Appareil posé comme tuile** (1.1.1, signalé par un joueur sur serveur dédié) : les radios HAM n'ont qu'une tuile (`WorldObjectSprite`) et se posent par `ISMoveableSpriteProps`, qui crée un `IsoRadio` avec sprite sans `RadioItemID`, recopie la ModData de l'objet à la pose (`:2423-2429`) et ne rend que `movableData` au ramassage (`:1403-1404`). Le suivi des appareils posés lit donc aussi l'état dans la ModData de l'`IsoRadio`, et l'y note sous `movableData.BatmanMains` (`Mains.keepOnPickup`) pour que l'objet ramassé reste modifié ; `Mains.state` cherche la clé à la racine puis dans `movableData`. Une radio déjà ramassée en 1.1.0 a perdu sa marque : la bricoler de nouveau.
+
 Autorité : client ou solo pour une radio portée (main, dos, ceinture) ; serveur ou solo pour un appareil posé. Limite MP à vérifier : la charge d'une radio portée n'est transmise au serveur que par les paquets de pile vanilla envoyés quand elle est allumée.
 
 ## Bruit d'un talkie à la ceinture qui reçoit (décision du 2026-10-10, appliquée par la version 1.1.0)

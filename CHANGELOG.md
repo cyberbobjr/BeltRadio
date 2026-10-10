@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 — 2026-10-10
+
+### For players
+- **Mains power, HAM radios placed down:** a HAM radio adapted for mains power and placed as furniture (or a walkie-talkie placed with **Place**) is now powered by the mains: no more battery drain, and the battery recharges in an electrified area. Radios already placed with 1.1.0 are handled automatically once their area is loaded.
+- An adapted radio placed as furniture and picked up again stays adapted (tooltip line kept). A radio already picked up with 1.1.0 lost its adaptation: craft **Adapt Radio for Mains Power** on it again.
+
 ## 1.1.0 — 2026-10-10
 
 ### For players

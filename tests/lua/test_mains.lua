@@ -288,6 +288,85 @@ function T.placed_device_added_in_play_is_tracked_then_released_when_picked_up()
     eq(BatmanRadioMainsPlaced.tracked[object], nil)
 end
 
+-- Tuile (radios HAM) : copie de ISMoveableSpriteProps 42.21, pose (:2423-2429)
+-- puis ramassage (:1403-1404, objet neuf qui ne reçoit que movableData).
+local function copyTable(t)
+    local out = {}
+    for k, v in pairs(t) do
+        out[k] = type(v) == "table" and copyTable(v) or v
+    end
+    return out
+end
+
+local function placeAsTile(item, sq)
+    local object = { kind = "IsoRadio", modData = nil, square = sq, index = 0, data = item.data }
+    object.hasModData = function(self) return self.modData ~= nil end
+    object.getModData = function(self)
+        self.modData = self.modData or {}
+        return self.modData
+    end
+    object.getSquare = function(self) return self.square end
+    object.getObjectIndex = function(self) return self.index end
+    object.getDeviceData = function(self) return self.data end
+    if item:hasModData() and item:getModData().movableData then
+        object:getModData().movableData = copyTable(item:getModData().movableData)
+    elseif item:hasModData() then
+        for k, v in pairs(item:getModData()) do object:getModData()[k] = v end
+    end
+    sq.objects[#sq.objects + 1] = object
+    return object
+end
+
+local function pickUpTile(object, fullType)
+    local item = radioItem(fullType)
+    item.data = object.data
+    if object:hasModData() and object:getModData().movableData then
+        item:getModData().movableData = copyTable(object:getModData().movableData)
+    end
+    object.index = -1
+    return item
+end
+
+function T.ham_placed_as_a_tile_recharges_and_stays_adapted_when_picked_up()
+    local M = mains()
+    local sq = square({ grid = true, room = {} })
+    local ham = adapt(radioItem("Base.HamRadio1", { power = 0.5, perHour = 0.01 }))
+    loadMod("server/BatmanRadio/BatmanRadio_MainsPlaced.lua")
+    local object = placeAsTile(ham, sq)
+    triggerEvent("OnObjectAdded", object)
+    eq(object.data.useDelta, 0)
+    MINUTE = MINUTE + 60
+    triggerEvent("EveryOneMinute")
+    close(object.data.power, 0.6)
+    local back = pickUpTile(object, "Base.HamRadio1")
+    eq(M.isModified(back), true)
+    close(M.state(back).useDelta, 0.01)
+    eq(M.onTestAdapt(back, nil), false)
+    -- Reposée : seule movableData est recopiée, toujours suivie.
+    local again = placeAsTile(back, sq)
+    triggerEvent("OnObjectAdded", again)
+    MINUTE = MINUTE + 60
+    triggerEvent("EveryOneMinute")
+    close(again.data.power, 0.7)
+    sq.grid = false
+    MINUTE = MINUTE + 1
+    triggerEvent("EveryOneMinute")
+    close(again.data.useDelta * 60, 0.01)
+end
+
+function T.ham_tile_saved_by_1_1_0_is_tracked_on_load_and_marked_for_pickup()
+    local sq = square({ generator = true })
+    local ham = adapt(radioItem("Base.HamRadio2", { power = 0.2 }))
+    local object = placeAsTile(ham, sq)
+    local plain = placeAsTile(radioItem("Base.HamRadio2", { power = 0.2 }), sq)
+    loadMod("server/BatmanRadio/BatmanRadio_MainsPlaced.lua")
+    triggerEvent("LoadGridsquare", sq)
+    eq(object.data.useDelta, 0)
+    eq(type(object.modData.movableData.BatmanMains), "table")
+    eq(plain.modData, nil)
+    eq(BatmanRadioMainsPlaced.tracked[plain], nil)
+end
+
 function T.placed_handlers_are_not_registered_on_an_mp_client()
     CLIENT = true
     loadMod("server/BatmanRadio/BatmanRadio_MainsPlaced.lua")
