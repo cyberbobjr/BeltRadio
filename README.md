@@ -32,6 +32,7 @@ Contents/mods/batman_BeltRadio/
 docs/              API and design decisions (French)
 tests/             checks without the game (lupa)
 tools/check_case.py  path case check for Linux servers
+tools/sync_fallback.py  writes the fallback copies embedded in Military Drop and Operation Artemis (--check compares)
 README.steam*      Steam Workshop descriptions (English = workshop.txt)
 ```
 
