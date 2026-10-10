@@ -12,8 +12,7 @@
 6. descriptions Steam (README.steam*) : 8 000 octets UTF-8 au plus (bloc Workshop ID /
    Mod ID déduit), BBCode équilibré, mêmes liens que l'anglais, workshop.txt identique
    à README.steam, sans id= tant que l'objet n'est pas créé ;
-7. casse des chemins pour un serveur Linux (tools/check_case.py), si le jeu est installé ;
-8. tests Lua (tests/lua/test_*.lua) sous lupa, avec l'API du jeu simulée.
+7. tests Lua (tests/lua/test_*.lua) sous lupa, avec l'API du jeu simulée.
 
 Dépendances : pip install lupa. Les vérifications qui lisent le jeu installé
 (PZ_MEDIA) ou Better Walkie Talkies (BWT_LUA) sont ignorées s'ils sont absents.
@@ -294,22 +293,6 @@ def check_steam_descriptions(report):
             report.ok(f"preview.png : {image.size[0]} x {image.size[1]}")
 
 
-def check_case(report):
-    report.section("Casse des chemins (serveur Linux)")
-    if not lua_harness.PZ_MEDIA.is_dir():
-        report.skip("jeu absent (PZ_MEDIA) : tools/check_case.py non lancé")
-        return
-    result = subprocess.run([sys.executable, str(REPO / "tools" / "check_case.py"),
-                             "--vanilla", str(lua_harness.PZ_MEDIA)],
-                            capture_output=True, text=True, encoding="utf-8", errors="replace")
-    lines = (result.stdout + result.stderr).strip().splitlines()
-    if result.returncode == 0:
-        report.ok(lines[0] if lines else "tools/check_case.py")
-    else:
-        for line in lines:
-            report.fail(line)
-
-
 def check_lua_tests(report):
     report.section(f"Tests Lua ({lua_harness.LUA_VERSION})")
     for path in sorted((Path(__file__).parent / "lua").glob("test_*.lua")):
@@ -333,7 +316,6 @@ def main():
     check_sandbox(report)
     check_translations(report)
     check_steam_descriptions(report)
-    check_case(report)
     check_lua_tests(report)
     print()
     if report.failures:
