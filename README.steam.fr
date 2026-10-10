@@ -38,6 +38,8 @@ Page [b]Talkie-walkie à la ceinture[/b], toutes activées par défaut ; désact
 [*]D'autres mods peuvent ajouter leurs stations et leurs couleurs par une petite API Lua.
 [/list]
 
+Code source (MIT) sur [url=https://github.com/cyberbobjr/BeltRadio]GitHub[/url].
+
 [h2]Soutenir le projet[/h2]
 
 Le mod vous plaît ? Un café aide à financer de nouvelles fonctions et traductions.

@@ -38,6 +38,8 @@
 [*]其他模组可通过一个小型 Lua API 添加自己的电台和颜色。
 [/list]
 
+源代码（MIT）位于 [url=https://github.com/cyberbobjr/BeltRadio]GitHub[/url].
+
 [h2]支持本项目[/h2]
 
 喜欢这个模组吗？一杯咖啡能帮助开发新功能和翻译。

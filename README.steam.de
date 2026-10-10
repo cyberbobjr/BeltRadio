@@ -38,6 +38,8 @@ Seite [b]Walkie-Talkie am Gürtel[/b], standardmäßig alle an; ausgeschaltet st
 [*]Andere Mods können über eine kleine Lua-API ihre Sender und Farben hinzufügen.
 [/list]
 
+Quellcode (MIT) auf [url=https://github.com/cyberbobjr/BeltRadio]GitHub[/url].
+
 [h2]Das Projekt unterstützen[/h2]
 
 Gefällt dir der Mod? Ein Kaffee hilft, neue Funktionen und Übersetzungen zu finanzieren.

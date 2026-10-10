@@ -268,8 +268,8 @@ def check_steam_descriptions(report):
                 report.fail(f"{path.name} : [{tag}] ouvert {opened} fois, fermé {text.count(f'[/{tag}]')} fois")
         if Counter(STEAM_URL.findall(text)) != reference_urls:
             report.fail(f"{path.name} : liens ou images différents de README.steam")
-        if "github.com" in text.lower():
-            report.fail(f"{path.name} : lien GitHub alors que le dépôt n'est pas public")
+        if "github.com/cyberbobjr/beltradio" not in text.lower():
+            report.fail(f"{path.name} : lien vers le dépôt public GitHub manquant")
         if report.failures == before:
             report.ok(f"{path.name} : {size} octets")
     description = [line[len("description="):] for line in workshop if line.startswith("description=")]

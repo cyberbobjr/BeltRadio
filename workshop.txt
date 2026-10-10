@@ -42,6 +42,8 @@ description=[*]Better Walkie Talkies is supported: it keeps its own battery and 
 description=[*]Other mods can add their stations and colours through a small Lua API.
 description=[/list]
 description=
+description=Source code (MIT) on [url=https://github.com/cyberbobjr/BeltRadio]GitHub[/url].
+description=
 description=[h2]Support the project[/h2]
 description=
 description=Enjoying the mod? A coffee helps fund new features and translations.

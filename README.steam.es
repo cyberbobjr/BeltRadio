@@ -38,6 +38,8 @@ Página [b]Walkie-talkie en el cinturón[/b], todas activadas por defecto; desac
 [*]Otros mods pueden añadir sus emisoras y colores mediante una pequeña API Lua.
 [/list]
 
+Código fuente (MIT) en [url=https://github.com/cyberbobjr/BeltRadio]GitHub[/url].
+
 [h2]Apoya el proyecto[/h2]
 
 ¿Te gusta el mod? Un café ayuda a financiar nuevas funciones y traducciones.

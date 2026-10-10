@@ -38,6 +38,8 @@ Page [b]Belt Walkie-Talkie[/b], all on by default; turned off, each one gives ba
 [*]Other mods can add their stations and colours through a small Lua API.
 [/list]
 
+Source code (MIT) on [url=https://github.com/cyberbobjr/BeltRadio]GitHub[/url].
+
 [h2]Support the project[/h2]
 
 Enjoying the mod? A coffee helps fund new features and translations.
