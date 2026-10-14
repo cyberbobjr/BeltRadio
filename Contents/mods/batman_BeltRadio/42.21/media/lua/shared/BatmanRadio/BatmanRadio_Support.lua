@@ -24,7 +24,8 @@ Support.OPTION_PAGE = "BeltRadio"
 -- Valeurs par défaut, aussi utilisées quand l'option n'existe pas (copie de
 -- secours d'un autre mod sans ce mod, sauvegarde d'avant l'option).
 Support.OPTION_DEFAULTS = {
-    MPBubble = true, BeltBattery = true, BeltListening = true, BeltNoise = true, MainsRechargeHours = 10,
+    MPBubble = true, BeltBattery = true, BeltListening = true, BeltNoise = true, BeltAudio = true,
+    MainsRechargeHours = 10,
 }
 
 --- Valeur d'une option du mod, lue à chaque appel : getOptionByName est à jour

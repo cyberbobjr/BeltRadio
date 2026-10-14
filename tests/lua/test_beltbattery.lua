@@ -65,6 +65,12 @@ local function radio(p, opts)
             if CLIENT then data.packets = data.packets + 1 end
         end
     end
+    -- DeviceData.java:641-653 : son de la radio (lancé par update) coupé.
+    data.cleaned = 0
+    data.cleanSoundsAndEmitter = function()
+        assert(data.calls > 0, "cleanSoundsAndEmitter attendu après update")
+        data.cleaned = data.cleaned + 1
+    end
     local item = { kind = opts.kind or "Radio", data = data }
     item.getDeviceData = function() return data end
     item.getContainer = function() return opts.container or p.inventory end
@@ -118,6 +124,7 @@ end
 function T.drains_each_minute_even_at_zero_volume_or_other_channel()
     local data = start({ volume = 0, channel = 151400 })
     eq(data.calls, 1)
+    eq(data.cleaned, 1) -- son lancé par update coupé aussitôt (radio non équipée)
     tick()
     tick()
     eq(data.calls, 1)

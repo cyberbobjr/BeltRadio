@@ -9,12 +9,13 @@
 -- seule la bulle d'une ligne de chaîne reçue par un talkie à la ceinture est ajoutée.
 -- Options sandbox (page BeltRadio) relues à chaque usage : BeltListening (écoute
 -- solo), MPBubble (bulle MP) ; BeltBattery dans BatmanRadio_BeltBattery.lua,
--- BeltNoise dans BatmanRadio_BeltNoise.lua.
+-- BeltNoise dans BatmanRadio_BeltNoise.lua, BeltAudio dans BatmanRadio_BeltAudio.lua.
 
 require "ISUI/ISRadioAndTvMenu"
 require "RadioCom/ISRadioWindow"
 require "BatmanRadio/BatmanRadio_BeltBattery"
 local BeltNoise = require "BatmanRadio/BatmanRadio_BeltNoise"
+local BeltAudio = require "BatmanRadio/BatmanRadio_BeltAudio"
 -- Partie partagée de l'API (VERSION, options, canTransmitWith) : même table.
 require "BatmanRadio/BatmanRadio_Support"
 local Compat = require "BatmanRadio/BatmanRadio_Compat"
@@ -259,6 +260,8 @@ function BeltRadio.deliver(line, frequency)
                 -- Bruit de réception (option BeltNoise) : celui du vanilla est
                 -- bloqué à la ceinture (BatmanRadio_BeltNoise.lua).
                 BeltNoise.emit(player, radio)
+                -- Son d'émission (option BeltAudio), coupé par le vanilla à la ceinture.
+                BeltAudio.onReceive(player, radio)
             end
         end
     end

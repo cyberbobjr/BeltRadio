@@ -8,6 +8,8 @@
     "Sandbox_BeltRadio_BeltListening_tooltip": "Singleplayer: a switched-on walkie-talkie hooked on the belt hears the station it is tuned to. Off: only a walkie-talkie in hand or a radio on the back hears anything (vanilla). A radio stored in the inventory never hears anything in singleplayer.",
     "Sandbox_BeltRadio_BeltNoise": "Noise of a walkie-talkie at the belt",
     "Sandbox_BeltRadio_BeltNoise_tooltip": "A switched-on walkie-talkie hooked on the belt makes a noise that attracts zombies each time it receives a line, as in hand (same volume and range, none with headphones). Off: it only makes noise for the first line received (vanilla).",
+    "Sandbox_BeltRadio_BeltAudio": "Sound of a walkie-talkie at the belt",
+    "Sandbox_BeltRadio_BeltAudio_tooltip": "A switched-on walkie-talkie hooked on the belt plays the radio sound as in hand: static while it waits, then the broadcast sound (emergency broadcast or program) for each line received. Only you hear it, as in hand. Off: no sound at the belt (vanilla).",
     "Sandbox_BeltRadio_MainsRechargeHours": "Mains recharge time (hours)",
     "Sandbox_BeltRadio_MainsRechargeHours_tooltip": "In-game hours for a radio adapted for mains power to recharge an empty battery in an electrified area (generator, or grid power inside a building). The battery must be in the radio; on mains power it no longer drains."
 }

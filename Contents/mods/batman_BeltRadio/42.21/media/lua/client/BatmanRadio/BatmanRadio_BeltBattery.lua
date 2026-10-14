@@ -60,6 +60,11 @@ function Battery.onTick()
                         -- Même appel que Radio.update : appareil d'inventaire,
                         -- joueur à portée. Initialise aussi le compteur dès l'allumage.
                         data:update(false, true)
+                        -- update joue aussi le son de la radio (updateEmitter), que
+                        -- Radio.update coupe à l'image suivante pour une radio non
+                        -- équipée : bref son parasite. Le couper tout de suite ; le
+                        -- son à la ceinture vient de BatmanRadio_BeltAudio.
+                        data:cleanSoundsAndEmitter()
                     end
                     tracked[data] = { stamp = stamp, on = data:getIsTurnedOn() }
                 end

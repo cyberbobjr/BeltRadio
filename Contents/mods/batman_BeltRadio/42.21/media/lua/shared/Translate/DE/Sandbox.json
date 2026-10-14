@@ -8,6 +8,8 @@
     "Sandbox_BeltRadio_BeltListening_tooltip": "Einzelspieler: Ein eingeschaltetes Walkie-Talkie am Gürtel empfängt den eingestellten Sender. Aus: Nur ein Walkie-Talkie in der Hand oder ein Funkgerät auf dem Rücken empfängt etwas (Vanilla). Ein im Inventar verstautes Funkgerät empfängt im Einzelspieler nie etwas.",
     "Sandbox_BeltRadio_BeltNoise": "Geräusch eines Walkie-Talkies am Gürtel",
     "Sandbox_BeltRadio_BeltNoise_tooltip": "Ein eingeschaltetes Walkie-Talkie am Gürtel macht bei jeder empfangenen Zeile ein Geräusch, das Zombies anlockt, wie in der Hand (gleiche Lautstärke und Reichweite, keines mit Kopfhörern). Aus: Es macht nur bei der ersten empfangenen Zeile ein Geräusch (Vanilla).",
+    "Sandbox_BeltRadio_BeltAudio": "Ton eines Walkie-Talkies am Gürtel",
+    "Sandbox_BeltRadio_BeltAudio_tooltip": "Ein eingeschaltetes Walkie-Talkie am Gürtel gibt den Radioton wie in der Hand wieder: Rauschen im Leerlauf, dann den Sendeton (Notfallsendung oder Programm) bei jeder empfangenen Zeile. Nur du hörst ihn, wie in der Hand. Aus: kein Ton am Gürtel (Vanilla).",
     "Sandbox_BeltRadio_MainsRechargeHours": "Ladezeit am Stromnetz (Stunden)",
     "Sandbox_BeltRadio_MainsRechargeHours_tooltip": "Spielstunden, bis ein für Netzstrom umgebautes Funkgerät eine leere Batterie in einem Bereich mit Strom auflädt (Generator oder öffentliches Netz in einem Gebäude). Die Batterie muss im Gerät sein; am Netzstrom wird sie nicht mehr verbraucht."
 }

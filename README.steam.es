@@ -13,6 +13,7 @@ Engancha tu walkie-talkie al cinturón y sigue escuchando. En vanilla, un walkie
 [*][b]Multijugador:[/b] una línea recibida por un walkie-talkie enganchado al cinturón también aparece en un bocadillo de radio sobre tu personaje, no solo en el chat de radio.
 [*]La pila se gasta en el cinturón, como en la mano.
 [*][b]Ruido:[/b] un walkie-talkie encendido en el cinturón hace un ruido que atrae a los zombis cada vez que recibe una línea, como en la mano (mismo volumen y alcance, ninguno con auriculares).
+[*][b]Sonido:[/b] un walkie-talkie encendido en el cinturón reproduce el sonido de la radio como en la mano: estática en espera y luego el sonido de la emisión (emisión de emergencia o programa) con cada línea recibida. Solo tú lo oyes, como en la mano.
 [*][b]Corriente:[/b] con Electrónica 1, un destornillador, 2 chatarras electrónicas y 1 cable eléctrico, adapta un walkie-talkie, una radio HAM o la radio militar de mochila. En una zona con electricidad (generador, o red eléctrica dentro de un edificio), su pila ya no se gasta y se recarga, incluso apagada. Sigue haciendo falta una pila dentro. La descripción emergente del objeto lo indica.
 [/list]
 
@@ -31,6 +32,7 @@ Página [b]Walkie-talkie en el cinturón[/b], todas activadas por defecto; desac
 [*]Consumo de pila en el cinturón.
 [*]Escucha en el cinturón (un jugador).
 [*]Ruido de un walkie-talkie en el cinturón.
+[*]Sonido de un walkie-talkie en el cinturón.
 [/list]
 Recarga con corriente: horas para llenar una pila vacía (10 por defecto).
 

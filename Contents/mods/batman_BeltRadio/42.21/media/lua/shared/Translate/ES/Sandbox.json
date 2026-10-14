@@ -8,6 +8,8 @@
     "Sandbox_BeltRadio_BeltListening_tooltip": "Un jugador: un walkie-talkie encendido enganchado al cinturón oye la emisora en la que está sintonizado. Desactivado: solo un walkie-talkie en la mano o una radio a la espalda oyen algo (vanilla). Una radio guardada en el inventario nunca oye nada en un jugador.",
     "Sandbox_BeltRadio_BeltNoise": "Ruido de un walkie-talkie en el cinturón",
     "Sandbox_BeltRadio_BeltNoise_tooltip": "Un walkie-talkie encendido colgado del cinturón hace un ruido que atrae a los zombis cada vez que recibe una línea, como en la mano (mismo volumen y alcance, ninguno con auriculares). Desactivado: solo hace ruido con la primera línea recibida (vanilla).",
+    "Sandbox_BeltRadio_BeltAudio": "Sonido de un walkie-talkie en el cinturón",
+    "Sandbox_BeltRadio_BeltAudio_tooltip": "Un walkie-talkie encendido colgado del cinturón reproduce el sonido de la radio como en la mano: estática en espera y luego el sonido de la emisión (emisión de emergencia o programa) con cada línea recibida. Solo tú lo oyes, como en la mano. Desactivado: ningún sonido en el cinturón (vanilla).",
     "Sandbox_BeltRadio_MainsRechargeHours": "Recarga con corriente (horas)",
     "Sandbox_BeltRadio_MainsRechargeHours_tooltip": "Horas de juego para que una radio adaptada a la corriente recargue una pila vacía en una zona con electricidad (generador, o red eléctrica dentro de un edificio). La pila debe estar en la radio; con corriente ya no se gasta."
 }

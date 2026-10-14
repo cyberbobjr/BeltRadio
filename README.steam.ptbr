@@ -13,6 +13,7 @@ Prenda seu walkie-talkie no cinto e continue ouvindo. No vanilla, um walkie-talk
 [*][b]Multijogador:[/b] uma linha recebida por um walkie-talkie preso no cinto também aparece em um balão de rádio acima do personagem, não só no chat de rádio.
 [*]A bateria é consumida no cinto, como na mão.
 [*][b]Ruído:[/b] um walkie-talkie ligado no cinto faz um ruído que atrai os zumbis toda vez que recebe uma linha, como na mão (mesmo volume e alcance, nenhum com fones de ouvido).
+[*][b]Som:[/b] um walkie-talkie ligado no cinto toca o som do rádio como na mão: estática em espera e depois o som da transmissão (transmissão de emergência ou programa) a cada linha recebida. Só você ouve, como na mão.
 [*][b]Energia elétrica:[/b] com Elétrica 1, uma chave de fenda, 2 sucatas eletrônicas e 1 fio elétrico, adapte um walkie-talkie, um rádio HAM ou o rádio militar de mochila. Em uma área com eletricidade (gerador, ou rede elétrica dentro de um prédio), a bateria não se gasta mais e recarrega, mesmo desligado. Ainda é preciso uma bateria dentro. A dica do item mostra isso.
 [/list]
 
@@ -31,6 +32,7 @@ Página [b]Walkie-talkie no cinto[/b], todas ativadas por padrão; desativada, c
 [*]Consumo da bateria no cinto.
 [*]Escuta no cinto (um jogador).
 [*]Ruído de um walkie-talkie no cinto.
+[*]Som de um walkie-talkie no cinto.
 [/list]
 Recarga na energia elétrica: horas para encher uma bateria vazia (10 por padrão).
 

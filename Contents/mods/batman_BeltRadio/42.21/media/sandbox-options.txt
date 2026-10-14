@@ -24,6 +24,12 @@ option BeltRadio.BeltNoise
     page = BeltRadio, translation = BeltRadio_BeltNoise,
 }
 
+option BeltRadio.BeltAudio
+{
+    type = boolean, default = true,
+    page = BeltRadio, translation = BeltRadio_BeltAudio,
+}
+
 option BeltRadio.MainsRechargeHours
 {
     type = integer, min = 1, max = 240, default = 10,

@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0 — 2026-10-14
+
+### For players
+- **Sound at the belt:** a switched-on walkie-talkie hooked on the belt now plays the radio sound as in hand: static while it waits, then the broadcast sound for each line received (emergency broadcast sound on the emergency channel). In vanilla a walkie-talkie at the belt was silent and only showed text. Only you hear it, as in hand. Sandbox option **Sound of a walkie-talkie at the belt**, on by default.
+
+### Known limits
+- Multiplayer: the broadcast sound for lines from other players relies on the radio chat event, like the noise at the belt; not tested in game yet.
+
 ## 1.1.1 — 2026-10-10
 
 ### For players

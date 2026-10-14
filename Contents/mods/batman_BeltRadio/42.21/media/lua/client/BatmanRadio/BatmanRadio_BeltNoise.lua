@@ -13,6 +13,7 @@
 -- RadioChat.showMessage, lignes de station et messages des autres joueurs).
 
 local Support = require "BatmanRadio/BatmanRadio_Support"
+local BeltAudio = require "BatmanRadio/BatmanRadio_BeltAudio"
 
 BatmanBeltRadioNoise = BatmanBeltRadioNoise or {}
 local Noise = BatmanBeltRadioNoise
@@ -53,7 +54,8 @@ end
 
 --- Client MP : une ligne radio affichée au chat (canal > 0 ; grésillements à 0)
 --- fait du bruit pour le talkie accroché qui la reçoit, sauf si la radio
---- équipée reçoit déjà ce canal (le vanilla fait alors son propre bruit).
+--- équipée reçoit déjà ce canal (le vanilla fait alors son propre bruit), et
+--- lance son son d'émission (BatmanRadio_BeltAudio, option BeltAudio).
 function Noise.onAddMessage(message, tabId)
     if not isClient() or message == nil or type(message) == "string" or not message.getRadioChannel then
         return
@@ -74,6 +76,7 @@ function Noise.onAddMessage(message, tabId)
                     if item and item:getContainer() == inventory and Core.isAttachedOnly(player, item)
                         and Core.receives(item, channel) then
                         Noise.emit(player, item)
+                        BeltAudio.onReceive(player, item)
                         break
                     end
                 end

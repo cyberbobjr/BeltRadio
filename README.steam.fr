@@ -13,6 +13,7 @@ Accrochez votre talkie-walkie à la ceinture et continuez d'écouter. En vanilla
 [*][b]Multijoueur :[/b] une ligne reçue par un talkie-walkie accroché à la ceinture s'affiche aussi dans une bulle radio au-dessus du personnage, pas seulement dans le chat radio.
 [*]La pile s'use à la ceinture, comme en main.
 [*][b]Bruit :[/b] un talkie-walkie allumé à la ceinture fait un bruit qui attire les zombies à chaque ligne reçue, comme en main (même volume et même portée, aucun avec des écouteurs).
+[*][b]Son :[/b] un talkie-walkie allumé à la ceinture fait entendre le son de la radio comme en main : grésillement en attente, puis le son de l'émission (diffusion d'urgence ou programme) à chaque ligne reçue. Vous seul l'entendez, comme en main.
 [*][b]Secteur :[/b] avec Électricité 1, un tournevis, 2 pièces électroniques et 1 fil électrique, bricolez un talkie-walkie, une radio HAM ou la radio militaire dorsale. Dans une zone électrifiée (générateur, ou réseau public dans un bâtiment), sa pile ne s'use plus et se recharge, même éteinte. Il faut toujours une pile dedans. L'infobulle de l'objet l'indique.
 [/list]
 
@@ -31,6 +32,7 @@ Page [b]Talkie-walkie à la ceinture[/b], toutes activées par défaut ; désact
 [*]Usure de la pile à la ceinture.
 [*]Écoute à la ceinture (solo).
 [*]Bruit d'un talkie-walkie à la ceinture.
+[*]Son d'un talkie-walkie à la ceinture.
 [/list]
 Recharge sur secteur : heures pour remplir une pile vide (10 par défaut).
 

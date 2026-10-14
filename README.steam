@@ -13,6 +13,7 @@ Hook your walkie-talkie on your belt and keep listening. In vanilla, a walkie-ta
 [*][b]Multiplayer:[/b] a line received by a walkie-talkie hooked on your belt also shows in a radio bubble above your character, not only in the radio chat.
 [*]The battery drains at the belt, as in hand.
 [*][b]Noise:[/b] a switched-on walkie-talkie at the belt makes a noise that attracts zombies each time it receives a line, as in hand (same volume and range, none with headphones).
+[*][b]Sound:[/b] a switched-on walkie-talkie at the belt plays the radio sound as in hand: static while it waits, then the broadcast sound (emergency broadcast or program) for each line received. Only you hear it, as in hand.
 [*][b]Mains power:[/b] with Electrical 1, a screwdriver, 2 electronics scraps and 1 electric wire, adapt a walkie-talkie, a HAM radio or the military backpack radio. In an electrified area (generator, or grid power inside a building), its battery no longer drains and recharges, even switched off. A battery must still be inside. The item tooltip shows it.
 [/list]
 
@@ -31,6 +32,7 @@ Page [b]Belt Walkie-Talkie[/b], all on by default; turned off, each one gives ba
 [*]Battery drain at the belt.
 [*]Listening at the belt (singleplayer).
 [*]Noise of a walkie-talkie at the belt.
+[*]Sound of a walkie-talkie at the belt.
 [/list]
 Mains recharge time: hours for an empty battery to fill up (10 by default).
 

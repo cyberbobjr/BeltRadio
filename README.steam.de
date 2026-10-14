@@ -13,6 +13,7 @@ Häng dein Walkie-Talkie an den Gürtel und hör weiter zu. In Vanilla lässt si
 [*][b]Mehrspieler:[/b] Eine Zeile, die ein Walkie-Talkie am Gürtel empfängt, erscheint auch in einer Funk-Sprechblase über deiner Figur, nicht nur im Funkchat.
 [*]Die Batterie wird am Gürtel verbraucht, wie in der Hand.
 [*][b]Geräusch:[/b] Ein eingeschaltetes Walkie-Talkie am Gürtel macht bei jeder empfangenen Zeile ein Geräusch, das Zombies anlockt, wie in der Hand (gleiche Lautstärke und Reichweite, keines mit Kopfhörern).
+[*][b]Ton:[/b] Ein eingeschaltetes Walkie-Talkie am Gürtel gibt den Radioton wie in der Hand wieder: Rauschen im Leerlauf, dann den Sendeton (Notfallsendung oder Programm) bei jeder empfangenen Zeile. Nur du hörst ihn, wie in der Hand.
 [*][b]Netzstrom:[/b] Mit Elektrotechnik 1, einem Schraubenzieher, 2 Elektronikschrott und 1 Stromkabel baust du ein Walkie-Talkie, ein HAM-Funkgerät oder das militärische Rucksackfunkgerät um. In einem Bereich mit Strom (Generator oder öffentliches Netz in einem Gebäude) wird die Batterie nicht mehr verbraucht und lädt sich auf, auch ausgeschaltet. Eine Batterie muss weiterhin eingesetzt sein. Der Tooltip des Gegenstands zeigt es an.
 [/list]
 
@@ -31,6 +32,7 @@ Seite [b]Walkie-Talkie am Gürtel[/b], standardmäßig alle an; ausgeschaltet st
 [*]Batterieverbrauch am Gürtel.
 [*]Empfang am Gürtel (Einzelspieler).
 [*]Geräusch eines Walkie-Talkies am Gürtel.
+[*]Ton eines Walkie-Talkies am Gürtel.
 [/list]
 Ladezeit am Stromnetz: Stunden, bis eine leere Batterie voll ist (standardmäßig 10).
 

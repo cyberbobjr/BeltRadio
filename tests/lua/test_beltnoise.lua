@@ -51,7 +51,8 @@ function T.setup()
     CLIENT = false
     isClient = function() return CLIENT end
     isServer = function() return false end
-    SANDBOX = useJavaSandboxOptions({})
+    -- Son à la ceinture (BatmanRadio_BeltAudio, chargé par ce module) : testé à part.
+    SANDBOX = useJavaSandboxOptions({ ["BeltRadio.BeltAudio"] = false })
     PLAYERS = { player() }
     getNumActivePlayers = function() return #PLAYERS end
     getSpecificPlayer = function(i) return PLAYERS[i + 1] end

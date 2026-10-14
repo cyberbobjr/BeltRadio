@@ -16,7 +16,7 @@ local function makeRadio(opts)
         getIsPortable = true, getIsTurnedOn = true, getIsTelevision = false, getChannel = FREQ,
         getDeviceVolume = 0.5, getDeviceVolumeRange = 12, isPlayingMedia = false, isNoTransmit = false,
         getIsBatteryPowered = true, getHasBattery = true, getPower = 0.8,
-        getHeadphoneType = -1, getDeviceSoundVolumeRange = 15,
+        getHeadphoneType = -1, getDeviceSoundVolumeRange = 15, isEmergencyBroadcast = false,
     }
     for name, value in pairs(values) do
         local v = value
@@ -29,6 +29,7 @@ local function makeRadio(opts)
     local radio = { kind = "Radio", said = {}, shown = {}, id = RADIO_IDS }
     radio.getID = function(self) return self.id end
     data.update = function() end -- batterie native couverte par test_beltbattery
+    data.cleanSoundsAndEmitter = function() end
     radio.getDeviceData = function() return data end
     radio.getContainer = function() return opts.container or INVENTORY end
     -- Doublure fidèle des deux surcharges Java (volume > 0 et sourd exclus dans les deux).
@@ -110,7 +111,33 @@ local function makeBroadcast(texts)
 end
 
 function T.setup()
-    getGameTime = function() return { getMinutesStamp = function() return 100 end } end
+    getGameTime = function() return { getMinutesStamp = function() return 100 end,
+        getMultiplier = function() return 1 end } end
+    -- Émetteurs du son à la ceinture (BatmanRadio_BeltAudio, détaillé dans test_beltaudio).
+    EMITTERS = {}
+    getWorld = function()
+        return {
+            getFreeEmitter = function()
+                local e = { playing = {}, n = 0 }
+                function e:playSoundImpl(name) self.n = self.n + 1; self.playing[self.n] = name; return self.n end
+                function e:isPlaying(name)
+                    for _, v in pairs(self.playing) do if v == name then return true end end
+                    return false
+                end
+                function e:stopSound(id) self.playing[id] = nil end
+                e.stopOrTriggerSound = e.stopSound
+                function e:stopAll() self.playing = {} end
+                function e:isUsingParameter() return false end
+                function e:setVolume() end
+                function e:setPos() end
+                function e:tick() end
+                EMITTERS[#EMITTERS + 1] = e
+                return e
+            end,
+            takeOwnershipOfEmitter = function() end,
+            returnOwnershipOfEmitter = function() end,
+        }
+    end
     SandboxVars = {}
     SOLO = true
     isClient = function() return not SOLO end
@@ -395,6 +422,27 @@ function T.belt_line_makes_a_zombie_noise_unless_option_is_off()
     assertEq(#SOUNDS, 1, "option fausse : aucun bruit ajouté")
 end
 
+-- Son d'émission (BatmanRadio_BeltAudio) : coupé en vanilla à la ceinture.
+function T.belt_line_plays_the_broadcast_sound_unless_option_is_off()
+    local radio = makeRadio()
+    PLAYER.attached = { radio }
+    startListening()
+    triggerEvent("OnTick")
+    assertEq(EMITTERS[1]:isPlaying("RadioStatic"), true, "grésillement de la radio allumée")
+    AIRING = makeBroadcast({ { "un", "TSRP" }, { "deux", "TSRP" } })
+    AIRING.count = 1
+    triggerEvent("OnTick")
+    triggerEvent("OnTick")
+    assertEq(EMITTERS[1]:isPlaying("RadioTalk"), true, "son d'émission à la ligne reçue")
+    SandboxVars.BeltRadio = { BeltAudio = false }
+    triggerEvent("OnTick")
+    assertEq(EMITTERS[1]:isPlaying("RadioTalk"), false, "option fausse : son arrêté")
+    AIRING.count = 2
+    triggerEvent("OnTick")
+    assertEq(#radio.said, 2, "ligne toujours reçue")
+    assertEq(#EMITTERS, 1, "option fausse : aucun son relancé")
+end
+
 function T.storm_scrambles_the_line_like_a_radio_in_hand()
     local radio = makeRadio()
     PLAYER.attached = { radio }
@@ -514,11 +562,11 @@ end
 function T.multiplayer_client_is_left_to_vanilla()
     SOLO = false
     startListening()
-    assertEq(listenerCount("OnTick"), 1, "client MP : batterie seulement, pas d'écoute ajoutée")
+    assertEq(listenerCount("OnTick"), 2, "client MP : batterie et son seulement, pas d'écoute ajoutée")
     SOLO = true
     startListening()
     startListening()
-    assertEq(listenerCount("OnTick"), 2, "solo : batterie et un seul récepteur")
+    assertEq(listenerCount("OnTick"), 3, "solo : batterie, son et un seul récepteur")
 end
 
 function T.no_channel_no_delivery()
@@ -539,14 +587,14 @@ function T.world_restart_releases_broadcasts_and_keeps_one_receiver()
     triggerEvent("OnTick")
     assertEq(#radio.said, 1, "premier monde")
     triggerEvent("OnMainMenuEnter")
-    assertEq(listenerCount("OnTick"), 1, "retour au menu : plus de récepteur, batterie seule")
+    assertEq(listenerCount("OnTick"), 2, "retour au menu : plus de récepteur, batterie et son seuls")
     AIRING = makeBroadcast({ { "second monde" } })
     AIRING.count = 1
     startListening()
     startListening()
     triggerEvent("OnTick")
     assertEq(#radio.said, 2, "nouvelle diffusion reçue une seule fois")
-    assertEq(listenerCount("OnTick"), 2, "un récepteur et une batterie")
+    assertEq(listenerCount("OnTick"), 3, "un récepteur, une batterie et le son")
 end
 
 function T.belt_line_is_shown_once_and_never_doubled_after_taking_the_radio_in_hand()
@@ -743,7 +791,7 @@ function T.belt_listening_off_is_vanilla_and_can_be_switched_back_on()
     triggerEvent("OnTick")
     assertEq(#radio.said + #radio.shown, 0, "option fausse : la ceinture n'entend rien")
     assertEq(listened, 0, "option fausse : aucune écoute déclarée")
-    assertEq(listenerCount("OnTick"), 2, "récepteur toujours inscrit (pile et récepteur)")
+    assertEq(listenerCount("OnTick"), 3, "récepteur toujours inscrit (pile, son et récepteur)")
     -- Rétablie en cours de partie : comme une radio qu'on allume, aucun
     -- historique rejoué (RadioChannel.getLastAiredLine, ici une ligne de pause).
     CHANNEL.getLastAiredLine = function() return "" end
