@@ -20,6 +20,7 @@ Décisions déjà actées et non reproposées ici : pas d'émission depuis la ce
 - **Risque** : bug. Un mod tiers qui n'inscrit que `recognize` ou `frequencies` (cas typique d'une chaîne à fréquence secrète en MP) fait échouer `BeltRadio.onTick` à chaque image en solo : plus aucune ligne livrée à la ceinture, journal saturé. Les trois mods actuels fournissent `channels`, d'où l'absence de symptôme.
 - **Correction** : `for _, channel in ipairs(provider.channels and provider.channels() or {})`, et `if provider.isStowed and provider.open and provider.isStowed(player, item)`. Ajouter un test lupa « fournisseur réduit à `recognize` ».
 - Statut : confirmé statiquement. Priorité **haute**, effort **S**.
+- **Statut : corrigé (commit d7240ba), à vérifier en jeu**
 
 ### C02 — Radio posée sur secteur : charge jamais envoyée aux clients
 - **Problème** : `Mains.apply` recharge par `DeviceData.setPower`, qui ne transmet rien (`DeviceData.java:587-596`). Le vanilla n'envoie la pile d'une radio posée qu'à `update` quand elle est **allumée** (paquet de type 3 tous les 10 min ou à chaque pas de 1 %, `DeviceData.java:777-786`). Une radio HAM bricolée et éteinte sur un générateur se recharge sur le serveur, mais la fenêtre radio du client affiche l'ancienne charge.
@@ -27,6 +28,7 @@ Décisions déjà actées et non reproposées ici : pas d'émission depuis la ce
 - **Risque** : MP, affichage trompeur (le joueur croit la recharge en panne).
 - **Correction** : sur le serveur seulement, quand `Mains.apply` rend vrai et que la charge a franchi un pas de 1 % (ou passe à 1), appeler `data:transmitBatteryChangeServer()`. Aucun effet en solo.
 - Statut : confirmé statiquement, rendu client à vérifier en jeu. Priorité **haute**, effort **S**.
+- **Statut : corrigé (commit d7240ba), à vérifier en jeu**
 
 ### C03 — Radio portée à la ceinture : la limite MP documentée est inexacte
 - **Problème** : la limite connue dit que « la charge d'une radio portée n'arrive au serveur que par les paquets de pile vanilla envoyés quand elle est allumée ». En réalité, le serveur n'applique un paquet d'état d'une radio d'inventaire que si elle est **en main** (octet de main 1 ou 2) ; pour une radio à la ceinture (main 0 + identifiant), il ne fait rien. La charge gagnée (secteur) ou perdue (`BeltBattery`) à la ceinture n'existe que sur le client jusqu'à la prochaine prise en main.
@@ -41,6 +43,7 @@ Décisions déjà actées et non reproposées ici : pas d'émission depuis la ce
 - **Risque** : performance (Kahlua environ 3,6 fois plus lent que Lua 5.1 sur les chaînes, `kahlua-lua.md`).
 - **Correction** : mémoriser `hasBWT` dans une variable locale, remise à `nil` à `OnMainMenuEnter`/`OnDisconnect` (et au rechargement du fichier). Garder le calcul de `radioTextBridge` à l'appel (la fonction BWT peut apparaître plus tard, commentaire `:32`).
 - Statut : confirmé statiquement. Priorité **moyenne**, effort **S**.
+- **Statut : corrigé (commit d7240ba), à vérifier en jeu**
 
 ### C05 — Enveloppe de `ISRadioWindow.update` reposée par-dessus un autre mod
 - **Problème** : `installWindowWrapper` réenveloppe dès que `ISRadioWindow.update` n'est plus notre fonction, et il est rappelé à chaque menu contextuel d'inventaire. Si un autre mod enveloppe `update` après nous, on enveloppe son enveloppe, qui appelle déjà la nôtre : `keepsWindow` est évalué deux fois. Avec un mod qui suit la même stratégie (« réenvelopper si ce n'est plus la mienne »), la chaîne s'allonge à chaque clic droit. Un tel mod est installé : `KeepRadioOn_Unofficial` (Workshop 3688705444) enveloppe `ISRadioWindow.update`.
@@ -48,6 +51,7 @@ Décisions déjà actées et non reproposées ici : pas d'émission depuis la ce
 - **Risque** : compatibilité, récursion de hooks (`kahlua-lua.md`).
 - **Correction** : ne réenvelopper que si la **classe** a changé (rechargement de `ISRadioWindow.lua` crée une nouvelle table) : retenir `BeltRadio.wrappedClass = ISRadioWindow` et comparer l'identité de la table plutôt que celle de la fonction.
 - Statut : confirmé statiquement, comportement combiné à vérifier en jeu. Priorité **moyenne**, effort **S**.
+- **Statut : corrigé (commit d7240ba), à vérifier en jeu**
 
 ### C06 — `incompatible=` non commité, identifiant introuvable
 - **Problème** : la copie de travail ajoute `incompatible=\KeepRadioOnVanillaFriendly`. Aucun mod abonné ne porte cet identifiant ; le mod voisin installé s'appelle `KeepRadioOn_Unofficial`. Un identifiant erroné rend la déclaration inopérante. `tests/run_all.py` (`check_mod_info`) ne contrôle pas cette ligne, et le `CHANGELOG` ne la mentionne pas.
