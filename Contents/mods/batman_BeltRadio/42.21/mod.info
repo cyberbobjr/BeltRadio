@@ -5,5 +5,5 @@ poster=poster.png
 icon=icon.png
 versionMin=42.21
 require=\TooltipLib
-incompatible=\KeepRadioOnVanillaFriendly
+incompatible=\KeepRadioOnVanillaFriendly,\KeepThatRadioOn42,\KeepRadioOn_Unofficial
 modversion=1.2.0
