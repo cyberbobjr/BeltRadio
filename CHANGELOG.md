@@ -20,7 +20,7 @@
 - **New requirement:** [TooltipLib](https://steamcommunity.com/sharedfiles/filedetails/?id=3694097672).
 
 ### For modders
-- API level `VERSION = 2`: global `BatmanRadioMains` (`isModified`, `isPoweredSquare`, `state`) and `BatmanBeltRadioNoise.emit`. See `docs/API.md`.
+- API level `VERSION = 2`: global `BatmanRadioMains` (`isModified`, `isPoweredSquare`, `state`) and `BatmanBeltRadioNoise.emit`. See `docs/specifications-techniques/api-publique.md`.
 
 ### Known limits
 - Multiplayer: the charge of a carried radio reaches the server only through the vanilla battery updates sent while it is switched on.
@@ -40,5 +40,5 @@ First release. The walkie-talkie behaviour shared by Military Drop, Operation Ar
 - Translations: English, French, German, Spanish, Portuguese, Brazilian Portuguese, Russian, Simplified Chinese.
 
 ### For modders
-- Lua API `BatmanRadioSupport` (same paths and global as the copies embedded in Military Drop and Operation Artemis): `VERSION`, `register` (channels, public frequencies, recognition of secret frequencies by line codes, opening of a stored radio, taking actions), `canTransmitWith` shared with the server, `option` / `enabled`. See `docs/API.md`.
+- Lua API `BatmanRadioSupport` (same paths and global as the copies embedded in Military Drop and Operation Artemis): `VERSION`, `register` (channels, public frequencies, recognition of secret frequencies by line codes, opening of a stored radio, taking actions), `canTransmitWith` shared with the server, `option` / `enabled`. See `docs/specifications-techniques/api-publique.md`.
 - Optional dependency pattern: a mod can embed a fallback copy under its own path that stays inactive while Belt Walkie-Talkie is enabled (`tools/sync_fallback.py`).

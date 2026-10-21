@@ -8,9 +8,14 @@ Walkie-talkies, HAM radios and the military backpack radio can be adapted for ma
 
 This mod is also the shared receiver (`BatmanRadio`) of Military Drop, Operation Artemis and Radio Survivor, extracted from Military Drop (`source/radio`, commit `15d1066`).
 
-- Mod ID: `batman_BeltRadio` (Workshop ID: not published yet)
-- Lua API for other mods (in French): [docs/API.md](docs/API.md)
-- Design decisions (in French): [docs/DECISIONS.md](docs/DECISIONS.md)
+![Device Options on a walkie-talkie hooked on the belt](docs/images/screenshots/belt-device-options-menu.png)
+
+![Emergency broadcast heard by a walkie-talkie at the belt, window open](docs/images/screenshots/belt-emergency-broadcast-bubble.png)
+
+- Mod ID: `batman_BeltRadio` (Workshop ID: [3817018338](https://steamcommunity.com/sharedfiles/filedetails/?id=3817018338))
+- Player and admin guide (wiki): [docs/wiki/en/Home.md](docs/wiki/en/Home.md)
+- Developer documentation (in French): [docs/README.md](docs/README.md), Lua API for other mods: [docs/specifications-techniques/api-publique.md](docs/specifications-techniques/api-publique.md)
+- Design decisions (in French): [docs/decisions.md](docs/decisions.md)
 - Changes: [CHANGELOG.md](CHANGELOG.md)
 
 ## Sandbox options
@@ -38,7 +43,7 @@ Contents/mods/batman_BeltRadio/
                                     rules and recipe code, BWT compatibility
     media/lua/server/BatmanRadio/   mains power of placed radios (singleplayer, server)
     media/scripts/                  recipe Adapt Radio for Mains Power
-docs/              API and design decisions (French)
+docs/              developer documentation (French), wiki sources (docs/wiki/en, docs/wiki/fr), screenshots
 tests/             checks without the game (lupa)
 README.steam*      Steam Workshop descriptions (English = workshop.txt)
 ```
@@ -66,7 +71,8 @@ Talkies-walkies, radios HAM et radio militaire dorsale se bricolent pour le sect
 
 Ce mod est aussi le récepteur commun (`BatmanRadio`) de Military Drop, Opération Artemis et Radio Survivor, extrait de Military Drop (`source/radio`, commit `15d1066`).
 
-- Identifiant : `batman_BeltRadio` (pas encore publié)
-- API Lua pour les autres mods : [docs/API.md](docs/API.md)
-- Décisions de conception : [docs/DECISIONS.md](docs/DECISIONS.md)
+- Identifiant : `batman_BeltRadio` (Workshop [3817018338](https://steamcommunity.com/sharedfiles/filedetails/?id=3817018338))
+- Guide du joueur (wiki) : [docs/wiki/fr/Home.md](docs/wiki/fr/Home.md)
+- Documentation de développement : [docs/README.md](docs/README.md) ; API Lua pour les autres mods : [docs/specifications-techniques/api-publique.md](docs/specifications-techniques/api-publique.md)
+- Décisions de conception : [docs/decisions.md](docs/decisions.md)
 - Vérifications hors jeu : `python tests/run_all.py`

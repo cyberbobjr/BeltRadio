@@ -1,5 +1,5 @@
 -- Belt Walkie-Talkie (batman_BeltRadio) : talkie, radio HAM ou radio dorsale
--- bricolé pour le secteur (recette BatmanRadio_AdaptRadioMains, docs/DECISIONS.md).
+-- bricolé pour le secteur (recette BatmanRadio_AdaptRadioMains, docs/decisions.md).
 -- Partagé : la recette (OnTest, OnCreate) tourne en solo ou sur le serveur, la
 -- pile d'une radio portée est gérée par le client (BatmanRadio_MainsCarried) et
 -- celle d'un appareil posé par le serveur (BatmanRadio_MainsPlaced).

@@ -1,4 +1,6 @@
-# API Lua de Belt Walkie-Talkie (`BatmanRadioSupport`)
+# API Lua publique de Belt Walkie-Talkie (`BatmanRadioSupport`)
+
+> Page de [Spécifications techniques](README.md). Décisions citées (« décision 4 », « décision 7 ») : [decisions.md](../decisions.md).
 
 Mod `batman_BeltRadio`, Build 42.21. Niveau d'API documenté ici : **`VERSION = 2`** (1.1.0 ; 1 = 1.0.0).
 
@@ -11,6 +13,7 @@ La table globale `BatmanRadioSupport` est complétée par deux fichiers :
 | `media/lua/client/BatmanRadio/BatmanRadio_BeltBattery.lua` | solo, client MP | pile à la ceinture (globale `BatmanBeltRadioBattery`) |
 | `media/lua/shared/BatmanRadio/BatmanRadio_Compat.lua` | partout | compatibilité Better Walkie Talkies (module renvoyé par `require`) |
 | `media/lua/client/BatmanRadio/BatmanRadio_BeltNoise.lua` | solo, client MP | bruit de réception à la ceinture (globale `BatmanBeltRadioNoise`, 2) |
+| `media/lua/client/BatmanRadio/BatmanRadio_BeltAudio.lua` | solo, client MP | son à la ceinture (globale `BatmanBeltRadioAudio`, interne : hors API) |
 | `media/lua/shared/BatmanRadio/BatmanRadio_Mains.lua` | partout | radios bricolées pour le secteur (globale `BatmanRadioMains`, 2) |
 | `media/lua/client/BatmanRadio/BatmanRadio_MainsCarried.lua` | solo, client MP | pile des radios modifiées portées |
 | `media/lua/server/BatmanRadio/BatmanRadio_MainsPlaced.lua` | solo, serveur | pile des appareils modifiés posés |
@@ -79,11 +82,7 @@ BatmanRadioSupport.option("MPBubble")    -- valeur (true par défaut)
 BatmanRadioSupport.enabled("BeltBattery") -- false seulement si l'option vaut false
 ```
 
-| Option | Défaut | Fausse (comportement vanilla) |
-|---|---|---|
-| `BeltRadio.MPBubble` | vrai | MP : la ligne reçue par un talkie à la ceinture n'apparaît que dans le chat radio |
-| `BeltRadio.BeltBattery` | vrai | pile figée à la ceinture, consommation rattrapée par `Radio.update` à la reprise en main |
-| `BeltRadio.BeltListening` | vrai | solo : un talkie à la ceinture n'entend rien |
+Noms, types, défauts et bornes des options : [Options sandbox](README.md#options-sandbox). `option("MainsRechargeHours")` rend un nombre.
 
 Lecture par `getSandboxOptions():getOptionByName("BeltRadio.X"):getValue()` à chaque usage (à jour après un changement en cours de partie), repli `SandboxVars.BeltRadio.X`, puis défaut. Le menu « Options de l'appareil » et la fenêtre gardée ouverte ne dépendent d'aucune option.
 
@@ -174,4 +173,3 @@ Sur une case électrifiée, l'appareil modifié a `useDelta = 0` et sa charge mo
 
 Émet le bruit vanilla d'une radio qui reçoit (volume `100 × getDeviceVolume()`, portée `getDeviceSoundVolumeRange()`, rien avec écouteurs, éteinte ou à volume nul), au plus une fois toutes les 2 s par radio, si l'option `BeltNoise` est vraie. Renvoie `true` si le bruit est parti. Le récepteur l'appelle déjà pour les lignes livrées à la ceinture (solo) et pour les lignes du chat radio (client MP).
 
-Options ajoutées : `BeltNoise` (booléen, vrai), `MainsRechargeHours` (entier, 10) ; `option("MainsRechargeHours")` rend un nombre.
