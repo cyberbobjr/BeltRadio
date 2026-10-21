@@ -1,0 +1,44 @@
+// pz-autotest configuration of Belt Walkie-Talkie (.claude/tools/pz-autotest/README.md, docs/annexes/tests/autotest.md):
+//   python .claude/tools/pz-autotest/pz_autotest.py check  BeltRadio
+//   python .claude/tools/pz-autotest/pz_autotest.py sp     BeltRadio --wait-idle 3600
+//   python .claude/tools/pz-autotest/pz_autotest.py server BeltRadio --wait-idle 3600
+//   python .claude/tools/pz-autotest/pz_autotest.py mp     BeltRadio --clients 1 --client-run --wait-idle 3600
+{
+  "name": "BeltRadio",
+  "gameVersion": "42.21",
+  // Load order: require=\TooltipLib first. TooltipLib is only READ from the Steam Workshop folder and copied.
+  "mods": [
+    {"workshop": "3694097672", "id": "TooltipLib"},
+    {"path": "Contents/mods/batman_BeltRadio"}
+  ],
+  // Client hooks: solo, or client 1 in mp with --client-run. Server hooks: dedicated server (server, mp).
+  "hooks": "autotest/br_hooks.lua",
+  "params": {"waitSec": "90"},
+  "sp": {
+    "save": "2026-10-17_17-50-04",
+    "gameMode": "Sandbox",
+    "saveMods": "replace",
+    "timeoutSec": 900,
+    "startDelaySec": 5
+  },
+  "server": {
+    "serverName": "pzat_beltradio",
+    "port": 17401,
+    "timeoutSec": 600,
+    "xmx": "3072m",
+    "ini": {"Map": "Muldraugh, KY", "MaxPlayers": 4}
+  },
+  "mp": {
+    "serverName": "pzat_beltradio_mp",
+    "port": 17411,
+    // Medium house of Muldraugh (media/maps/Muldraugh, KY/spawnpoints.lua): fixed spawn, no spawn choice screen.
+    "spawn": "10656,10137,0",
+    "clients": 1,
+    "clientXmx": "4096m",
+    "serverRun": true,
+    "clientRun": true,
+    "timeoutSec": 1800,
+    "joinTimeoutSec": 600,
+    "ini": {"Map": "Muldraugh, KY", "MaxPlayers": 4}
+  }
+}

@@ -10,6 +10,7 @@ Un talkie-walkie accroché à la ceinture se règle, reste allumé, entend sa st
 | [specifications-techniques/api-publique.md](specifications-techniques/api-publique.md) | API Lua publique `BatmanRadioSupport` pour les autres mods (fournisseurs, `canTransmitWith`, secteur, bruit) |
 | [decisions.md](decisions.md) | Journal des décisions de conception (2026-10-10 au 2026-10-14) |
 | [ameliorations-et-idees.md](ameliorations-et-idees.md) | Améliorations de code et idées de fonctionnalités (propositions, à valider) |
+| [annexes/tests/autotest.md](annexes/tests/autotest.md) | Tests en jeu automatiques (pz-autotest) : commandes, vérifications par fonctionnalité, limites |
 | [wiki/en/Home.md](wiki/en/Home.md) | Wiki joueur et administrateur, anglais (source du wiki GitHub) |
 | [wiki/fr/Home.md](wiki/fr/Home.md) | Wiki joueur et administrateur, français |
 | [images/screenshots/](images/screenshots/) | Captures en jeu utilisées par le README, le wiki et la page Steam |
