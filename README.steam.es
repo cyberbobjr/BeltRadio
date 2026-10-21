@@ -46,6 +46,11 @@ Recarga con corriente: horas para llenar una pila vacía (10 por defecto).
 
 Código fuente (MIT) en [url=https://github.com/cyberbobjr/BeltRadio]GitHub[/url].
 
+[h2]Discord[/h2]
+
+¿Preguntas, errores o ideas? Únete al Discord:
+[url=https://discord.gg/QEsBya7hUA]https://discord.gg/QEsBya7hUA[/url]
+
 [h2]Apoya el proyecto[/h2]
 
 ¿Te gusta el mod? Un café ayuda a financiar nuevas funciones y traducciones.

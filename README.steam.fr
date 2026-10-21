@@ -46,6 +46,11 @@ Recharge sur secteur : heures pour remplir une pile vide (10 par défaut).
 
 Code source (MIT) sur [url=https://github.com/cyberbobjr/BeltRadio]GitHub[/url].
 
+[h2]Discord[/h2]
+
+Questions, bugs ou idées ? Rejoignez le Discord :
+[url=https://discord.gg/QEsBya7hUA]https://discord.gg/QEsBya7hUA[/url]
+
 [h2]Soutenir le projet[/h2]
 
 Le mod vous plaît ? Un café aide à financer de nouvelles fonctions et traductions.

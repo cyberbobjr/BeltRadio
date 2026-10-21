@@ -46,6 +46,11 @@
 
 Исходный код (MIT) на [url=https://github.com/cyberbobjr/BeltRadio]GitHub[/url].
 
+[h2]Discord[/h2]
+
+Вопросы, ошибки или идеи? Присоединяйтесь к Discord:
+[url=https://discord.gg/QEsBya7hUA]https://discord.gg/QEsBya7hUA[/url]
+
 [h2]Поддержать проект[/h2]
 
 Нравится мод? Чашка кофе помогает финансировать новые функции и переводы.
