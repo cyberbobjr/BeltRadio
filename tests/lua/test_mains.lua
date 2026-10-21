@@ -288,6 +288,37 @@ function T.placed_device_added_in_play_is_tracked_then_released_when_picked_up()
     eq(BatmanRadioMainsPlaced.tracked[object], nil)
 end
 
+function T.placed_charge_is_sent_to_clients_at_each_percent_on_a_server_only()
+    local sq = square({ generator = true })
+    local ham = adapt(radioItem("Base.HamRadio1", { power = 0.5, perHour = 0.01 }))
+    local object = placed(ham, sq)
+    local sent = 0
+    object.data.transmitBatteryChangeServer = function() sent = sent + 1 end
+    SERVER = true
+    loadMod("server/BatmanRadio/BatmanRadio_MainsPlaced.lua")
+    triggerEvent("LoadGridsquare", sq)
+    eq(sent, 0) -- premier passage : aucune recharge
+    MINUTE = MINUTE + 1 -- 10 h par défaut : 1/600 par minute, sous le pas de 1 %
+    triggerEvent("EveryOneMinute")
+    eq(sent, 0)
+    MINUTE = MINUTE + 6
+    triggerEvent("EveryOneMinute")
+    eq(sent, 1)
+    MINUTE = MINUTE + 600
+    triggerEvent("EveryOneMinute")
+    eq(object.data.power, 1)
+    eq(sent, 2)
+    MINUTE = MINUTE + 60
+    triggerEvent("EveryOneMinute")
+    eq(sent, 2) -- pleine : plus rien à envoyer
+    -- Solo : rien à transmettre.
+    SERVER = false
+    object.data.power = 0.5
+    MINUTE = MINUTE + 60
+    triggerEvent("EveryOneMinute")
+    eq(sent, 2)
+end
+
 -- Tuile (radios HAM) : copie de ISMoveableSpriteProps 42.21, pose (:2423-2429)
 -- puis ramassage (:1403-1404, objet neuf qui ne reçoit que movableData).
 local function copyTable(t)

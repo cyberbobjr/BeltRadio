@@ -97,7 +97,7 @@ Chaque module garde sa table globale au rechargement Lua et retire ses anciens a
 | `LoadGridsquare`, `OnObjectAdded`, `EveryOneMinute` | MainsPlaced | solo, serveur | repérage et mise à jour des appareils posés |
 | `OnDisconnect`, `OnMainMenuEnter` | Core, BeltBattery, BeltNoise, BeltAudio, MainsCarried | client | remise à zéro des états en mémoire |
 
-Fonction vanilla enveloppée : `ISRadioWindow.update` (Core), pour garder ouverte la fenêtre d'un talkie accroché ou en cours de prise en main au lieu de l'éteindre.
+Fonction vanilla enveloppée : `ISRadioWindow.update` (Core), pour garder ouverte la fenêtre d'un talkie accroché ou en cours de prise en main au lieu de l'éteindre. L'enveloppe n'est reposée que si la classe `ISRadioWindow` a changé (rechargement de son fichier) : celle d'un autre mod posée après nous est laissée en place.
 
 ### Écoute solo
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### For players
+- **Mains power, multiplayer:** a radio adapted for mains power and placed down (dropped or placed as furniture) now shows its battery charge rising in the radio window while it recharges, even switched off. Before, the charge only updated once the radio was switched on.
+- Better compatibility with other mods that change the radio window or register radio channels.
+
 ## 1.2.0 — 2026-10-14
 
 ### For players

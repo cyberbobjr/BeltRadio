@@ -361,12 +361,32 @@ function T.window_wrapper_is_installed_once()
 end
 
 function T.window_wrapper_is_put_back_after_a_reload()
+    -- Rechargement de ISRadioWindow.lua : nouvelle classe (ISCollapsableWindow:derive).
     local reloaded = function() return "reloaded" end
-    ISRadioWindow.update = reloaded
+    ISRadioWindow = { update = reloaded }
     SUPPORT.onFillInventoryContextMenu(0, makeContext(), {})
     assertTrue(ISRadioWindow.update ~= reloaded, "enveloppe reposée sur le fichier rechargé")
     assertEq(ISRadioWindow.update(makeWindow(makeRadio())), "reloaded", "nouvel original appelé hors ceinture")
 end
+
+function T.window_wrapper_is_not_stacked_over_another_mod_wrapper()
+    -- Un autre mod enveloppe update après nous et appelle notre enveloppe.
+    local ours = ISRadioWindow.update
+    local foreignCalls = 0
+    local foreign = function(self, ...)
+        foreignCalls = foreignCalls + 1
+        return ours(self, ...)
+    end
+    ISRadioWindow.update = foreign
+    for _ = 1, 3 do
+        SUPPORT.onFillInventoryContextMenu(0, makeContext(), {})
+    end
+    assertEq(ISRadioWindow.update, foreign, "enveloppe étrangère laissée en place")
+    assertEq(ISRadioWindow.update(makeWindow(makeRadio())), "original", "chaîne inchangée")
+    assertEq(foreignCalls, 1, "enveloppe étrangère appelée une fois")
+    assertEq(ORIGINAL_CALLS, 1, "original vanilla appelé une fois")
+end
+
 
 -- 3. Écoute en solo ----------------------------------------------------------------
 
@@ -815,6 +835,25 @@ function T.mp_bubble_off_is_vanilla()
     NOW = NOW + 5000
     vanillaMpLine({ belt }, "grille 1")
     assertEq(#PLAYER.bubbles, 1, "rétablie en cours de partie : bulle")
+end
+
+function T.provider_with_only_recognize_neither_breaks_solo_listening_nor_adds_an_empty_option()
+    -- Champs facultatifs (api-publique.md) : fournisseur réduit à recognize,
+    -- puis fournisseur qui sait reconnaître une radio rangée mais sans open.
+    SUPPORT.register("Partial", { recognize = function() return nil end })
+    SUPPORT.register("NoOpen", { isStowed = function() return true end })
+    local radio = makeRadio()
+    PLAYER.attached = { radio }
+    startListening()
+    AIRING = makeBroadcast({ { "grille 1" } })
+    AIRING.count = 1
+    triggerEvent("OnTick")
+    assertEq(#radio.said, 1, "ligne livrée malgré le fournisseur sans channels")
+    local bag = { name = "bag", isInCharacterInventory = function() return true end }
+    local stowed = makeRadio({ container = bag })
+    local context = makeContext()
+    SUPPORT.onFillInventoryContextMenu(0, context, { stowed })
+    assertEq(#context.options, 0, "pas d'option sans action")
 end
 
 return T

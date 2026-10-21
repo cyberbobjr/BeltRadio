@@ -86,4 +86,25 @@ function T.bridge_is_client_only_and_must_be_callable()
     eq(COMPAT.features().radioTextBridge, nil)
 end
 
+function T.active_mod_list_is_scanned_once_per_java_list()
+    -- getActivatedMods() rend toujours la même liste Java pendant une partie.
+    local gets = 0
+    local ids = { "OtherMod", "BetterWalkieTalkies" }
+    local mods = { size = function() return #ids end,
+        get = function(_, i) gets = gets + 1; return ids[i + 1] end }
+    getActivatedMods = function() return mods end
+    eq(COMPAT.hasBWT(), true)
+    local first = gets
+    for _ = 1, 10 do COMPAT.features() end
+    eq(gets, first)
+    -- Liste remplie à nouveau (autre taille) : relue.
+    ids = { "OtherMod" }
+    eq(COMPAT.hasBWT(), false)
+    -- Même taille : cache gardé jusqu'à resetCache.
+    ids = { "BetterWalkieTalkiesDev" }
+    eq(COMPAT.hasBWT(), false)
+    COMPAT.resetCache()
+    eq(COMPAT.hasBWT(), true)
+end
+
 return T

@@ -70,10 +70,25 @@ function Placed.consider(object)
     end
 end
 
+--- Pas de 1 % franchi, ou pile pleine : charge à envoyer aux clients.
+function Placed.crossesStep(before, after)
+    return after >= 1 or math.floor(before * 100) ~= math.floor(after * 100)
+end
+
+--- DeviceData.setPower ne transmet rien (DeviceData.java:587-596) et le vanilla
+--- n'envoie la pile d'une radio posée que si elle est allumée (:777-786) :
+--- sur un serveur, la charge gagnée sur le secteur est envoyée par le paquet de
+--- pile vanilla (transmitBatteryChangeServer, type 2, :312-314) à chaque pas
+--- de 1 %, comme le vanilla pour l'usure.
 function Placed.update(object, entry, stamp)
     local minutes = entry.stamp and (stamp - entry.stamp) or 0
     entry.stamp = stamp
-    Mains.apply(entry.state, object:getDeviceData(), Mains.isPoweredSquare(object:getSquare()), minutes)
+    local data = object:getDeviceData()
+    local before = data and data:getPower()
+    if Mains.apply(entry.state, data, Mains.isPoweredSquare(object:getSquare()), minutes)
+        and isServer() and Placed.crossesStep(before, data:getPower()) then
+        data:transmitBatteryChangeServer()
+    end
 end
 
 function Placed.onLoadGridsquare(square)
