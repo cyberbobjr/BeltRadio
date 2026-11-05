@@ -1,0 +1,61 @@
+[h1]Belt Walkie-Talkie[/h1]
+
+[b]Build 42.21 · Tek oyunculu ve çok oyunculu · Gerekli: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3694097672]TooltipLib[/url][/b]
+
+Telsizini kemerine tak ve dinlemeye devam et. Vanilla'da kemerdeki telsiz ayarlanamaz, penceresi açılınca kapanır ve tek oyunculuda hiçbir şey duymaz. Bu mod bunları düzeltir, ellerin serbest kalır.
+
+[h2]Ne yapar[/h2]
+
+[list]
+[*][b]Aygıt Ayarları[/b]: kemere takılı telsizde frekansı ayarla, aç ve sesini düzenle.
+[*]Penceresi artık onu kapatmaz, eline alsan bile.
+[*][b]Tek oyuncu:[/b] açık ve kemerdeki telsiz, ayarlı olduğu istasyonu duyar (vanilla istasyonları, acil yayın ve modların eklediği istasyonlar); karakterinin üstünde radyo balonu çıkar. Fırtınalar, eldeki telsiz gibi sinyali bozar.
+[*][b]Çok oyunculu:[/b] kemerdeki telsizin aldığı bir satır, radyo sohbetinin yanında karakterinin üstünde de bir radyo balonunda görünür.
+[*]Pil, eldeki gibi kemerdeyken de boşalır.
+[*][b]Gürültü:[/b] açık ve kemerdeki telsiz, her satır aldığında zombileri çeken bir ses çıkarır; eldeki gibi (aynı ses seviyesi ve menzil, kulaklıkla yok).
+[*][b]Ses:[/b] açık ve kemerdeki telsiz, eldeki gibi radyo sesini çalar: bekleme sırasında parazit, ardından aldığı her satır için yayın sesi (acil yayın ya da program). Sesi yalnız sen duyarsın.
+[*][b]Elektrikçilik:[/b] Elektrikçilik 1, tornavida, 2 elektronik hurda ve 1 elektrik teli ile telsizi, HAM radyoyu ya da askerî sırt çantası radyosunu uyarlarsın. Elektrikli bir alanda (jeneratör ya da binanın içindeki şebeke) pili boşalmaz ve şarj olur, kapalıyken bile. İçinde pil olmalı. Eşya açıklamasında görünür.
+[/list]
+
+[h2]Yapmadıkları[/h2]
+
+[list]
+[*]Kemerden yayın yapamazsın: konuşmak için telsizi eline al (ya da sırtına bir radyo tak).
+[*]Envanterinde ya da çantasında duran bir radyo, tek oyuncuda vanilla'daki gibi hiçbir şey duymaz.
+[/list]
+
+[h2]Sandbox seçenekleri[/h2]
+
+[b]Belt Walkie-Talkie[/b] sayfası, hepsi varsayılan olarak açık; kapatılan her seçenek, oyun ortasında bile vanilla davranışı geri getirir:
+[list]
+[*]Kemerdeki telsiz için balon (çok oyunculu).
+[*]Kemerde pil boşalması.
+[*]Kemerde dinleme (tek oyuncu).
+[*]Kemerdeki telsizin gürültüsü.
+[*]Kemerdeki telsizin sesi.
+[/list]
+Elektrik şarj süresi: boş bir pilin dolması için saat (varsayılan 10).
+
+[h2]Uyumluluk[/h2]
+
+[list]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3811752923]Military Drop[/url] ve [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3813648615]Operation Artemis[/url] ortak alıcısı: bir sonraki güncellemelerinden itibaren etkin olduğunda onu kullanırlar.
+[*]Better Walkie Talkies desteklenir: kendi pilini ve ses yönetimini korur.
+[*]Diğer modlar, küçük bir Lua API'siyle kendi istasyonlarını ve renklerini ekleyebilir.
+[/list]
+
+Kaynak kodu (MIT): [url=https://github.com/cyberbobjr/BeltRadio]GitHub[/url].
+
+[h2]Discord[/h2]
+
+Soru, hata bildirimi ya da fikrin mi var? Discord'a katıl:
+[url=https://discord.gg/QEsBya7hUA]https://discord.gg/QEsBya7hUA[/url]
+
+[h2]Yapay zekâ hakkında bir not[/h2]
+
+Yıllardır geliştiriciyim ve kodlama ajanları ortaya çıkmadan çok önce mod yapıyordum; bu da çoğu zaman ailemle geçirdiğim zamandan çalıyordu. Claude Code ve Codex'i açıkça kullanıyorum: her özellik hâlâ tartışılıyor, tasarlanıyor ve planlanıyor; körü körüne "vibe coding" yapılmıyor. Yapay zekâ kalıcı; direnmek yerine uyum sağlamayı seçtim. Kişisel saldırılara karşı duran herkese teşekkür ederim.
+
+[h2]Projeye destek ol[/h2]
+
+Modu beğendin mi? Bir kahve yeni özelliklerin ve çevirilerin finansmanına yardımcı olur.
+[url=https://ko-fi.com/Z8Z8QJV31][img]https://storage.ko-fi.com/cdn/kofi6.png?v=6[/img][/url]
