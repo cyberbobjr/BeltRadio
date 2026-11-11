@@ -1,8 +1,8 @@
-// pz-autotest configuration of Belt Walkie-Talkie (.claude/tools/pz-autotest/README.md, docs/annexes/tests/autotest.md):
-//   python .claude/tools/pz-autotest/pz_autotest.py check  BeltRadio
-//   python .claude/tools/pz-autotest/pz_autotest.py sp     BeltRadio --wait-idle 3600
-//   python .claude/tools/pz-autotest/pz_autotest.py server BeltRadio --wait-idle 3600
-//   python .claude/tools/pz-autotest/pz_autotest.py mp     BeltRadio --clients 1 --client-run --wait-idle 3600
+// pzdev configuration of Belt Walkie-Talkie (PZDevKit/docs/wiki/fr/01-tests-automatiques.md, docs/annexes/tests/autotest.md):
+//   python PZDevKit/pzdev.py check  BeltRadio
+//   python PZDevKit/pzdev.py sp     BeltRadio --wait-idle 3600
+//   python PZDevKit/pzdev.py server BeltRadio --wait-idle 3600
+//   python PZDevKit/pzdev.py mp     BeltRadio --clients 1 --client-run --wait-idle 3600
 {
   "name": "BeltRadio",
   "gameVersion": "42.21",

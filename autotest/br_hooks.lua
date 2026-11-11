@@ -1,6 +1,6 @@
 --[[
-Belt Walkie-Talkie (batman_BeltRadio) in-game nominal test for pz-autotest (.claude/tools/pz-autotest).
-Configuration: BeltRadio/autotest.json. Loaded by batman_PZAutoTestDriver with loadstring (global environment, mod
+Belt Walkie-Talkie (batman_BeltRadio) in-game nominal test for pzdev (PZDevKit).
+Configuration: BeltRadio/autotest.json. Loaded by batman_PZDevKit with loadstring (global environment, mod
 already loaded). One check per main feature of docs/specifications-fonctionnelles.md (F01-F13); edge cases later.
 
 Client side (solo, or client 1 in mp with --client-run): two walkie-talkies are added to the player, one hooked on the

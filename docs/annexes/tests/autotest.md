@@ -1,7 +1,7 @@
 # Tests en jeu automatiques
 
-Parcours nominal de Belt Walkie-Talkie exécuté dans le vrai jeu (Build 42.21) par le lanceur générique pz-autotest
-(`C:\Users\cyber\Zomboid\Workshop\.claude\tools\pz-autotest`, voir son `README.md` et le skill `pz-autotest`). Cas
+Parcours nominal de Belt Walkie-Talkie exécuté dans le vrai jeu (Build 42.21) par le lanceur générique pzdev
+(`C:\Users\cyber\Zomboid\Workshop\.claude\tools\pzdev`, voir son `README.md` et le skill `pzdev`). Cas
 limites : plus tard.
 
 - Configuration : [`autotest.json`](../../../autotest.json) (TooltipLib, prérequis `require=`, lu dans le Workshop Steam
@@ -16,10 +16,10 @@ Depuis `C:\Users\cyber\Zomboid\Workshop`, un seul jeu à la fois (`--wait-idle` 
 lancés par d'autres soient fermés) :
 
 ```powershell
-python .claude/tools/pz-autotest/pz_autotest.py check  BeltRadio                                   # config, mods, hooks
-python .claude/tools/pz-autotest/pz_autotest.py sp     BeltRadio --wait-idle 3600                   # solo
-python .claude/tools/pz-autotest/pz_autotest.py server BeltRadio --wait-idle 3600                   # serveur dédié seul
-python .claude/tools/pz-autotest/pz_autotest.py mp     BeltRadio --clients 1 --client-run --wait-idle 3600  # serveur + client
+python PZDevKit/pzdev.py check  BeltRadio                                   # config, mods, hooks
+python PZDevKit/pzdev.py sp     BeltRadio --wait-idle 3600                   # solo
+python PZDevKit/pzdev.py server BeltRadio --wait-idle 3600                   # serveur dédié seul
+python PZDevKit/pzdev.py mp     BeltRadio --clients 1 --client-run --wait-idle 3600  # serveur + client
 ```
 
 Paramètre : `-P waitSec=90` (secondes réelles au plus pour voir passer deux minutes de jeu, F05).
